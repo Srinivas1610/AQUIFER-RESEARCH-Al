@@ -1,0 +1,44 @@
+{
+  "initial_fit_train": {
+    "start": "2021-01",
+    "end": "2023-12",
+    "months": 36,
+    "role": "Model fitting, preprocessing, imputer"
+  },
+  "temporal_val": {
+    "start": "2024-01",
+    "end": "2024-06",
+    "months": 6,
+    "role": "Hyperparameter tuning and model selection"
+  },
+  "refit_train": {
+    "start": "2021-01",
+    "end": "2024-06",
+    "months": 42,
+    "role": "Final refitting with selected hyperparams"
+  },
+  "calibration": {
+    "start": "2024-07",
+    "end": "2024-12",
+    "months": 6,
+    "role": "Conformal interval expansion; no parameter updates"
+  },
+  "final_test": {
+    "start": "2025-01",
+    "end": "2025-12",
+    "months": 12,
+    "role": "Final evaluation of forecasts and unmonitored queries"
+  },
+  "rolling_origin_dev": [
+    {
+      "fit_end": "2022-12",
+      "val_start": "2023-01",
+      "val_end": "2023-06"
+    },
+    {
+      "fit_end": "2023-06",
+      "val_start": "2023-07",
+      "val_end": "2023-12"
+    }
+  ]
+}

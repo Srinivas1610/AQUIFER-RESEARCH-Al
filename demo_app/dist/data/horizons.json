@@ -1,0 +1,35 @@
+[
+  {
+    "horizon_months": 1,
+    "monitored_mae": 4.3859,
+    "monitored_rmse": 7.9661,
+    "monitored_nse": 0.7749,
+    "query_mae": 12.2847,
+    "query_rmse": 17.1393,
+    "query_nse": 0.013,
+    "n_monitored_targets": 10323,
+    "n_query_targets": 3250
+  },
+  {
+    "horizon_months": 3,
+    "monitored_mae": 7.3095,
+    "monitored_rmse": 11.2292,
+    "monitored_nse": 0.5527,
+    "query_mae": 11.8429,
+    "query_rmse": 16.9364,
+    "query_nse": 0.0362,
+    "n_monitored_targets": 10323,
+    "n_query_targets": 3250
+  },
+  {
+    "horizon_months": 6,
+    "monitored_mae": 9.8968,
+    "monitored_rmse": 13.5015,
+    "monitored_nse": 0.3534,
+    "query_mae": 11.7736,
+    "query_rmse": 16.89,
+    "query_nse": 0.0415,
+    "n_monitored_targets": 10323,
+    "n_query_targets": 3250
+  }
+]

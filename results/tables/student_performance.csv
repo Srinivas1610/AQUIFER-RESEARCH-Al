@@ -1,0 +1,5 @@
+Task,Model,Split,n_targets,n_wells,pooled_mae,pooled_rmse,pooled_nse,well_mae,well_rmse,well_nse
+Monitored,Student GNN (alpha=0.3),Val Monitored,5460,959,5.0416,8.8061,0.7787,5.4383,6.4531,-2065.6426
+Monitored,Student GNN (alpha=0.3),Test Monitored,10323,989,4.1903,7.8886,0.7793,4.6908,5.951,-17488.9098
+No-History Query,Student GNN (alpha=0.3),Spatial-Val Query,1305,232,16.8972,23.7543,0.0025,18.4061,19.322,-79944.8538
+No-History Query,Student GNN (alpha=0.3),Test Query,3250,301,12.1604,17.0467,0.0236,12.3979,13.3351,-12812.3659

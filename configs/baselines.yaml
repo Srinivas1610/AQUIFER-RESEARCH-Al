@@ -1,0 +1,9 @@
+_base_: base.yaml
+mode: baselines
+baselines:
+  - persistence
+  - seasonal_naive
+  - ridge
+  - random_forest
+  - xgboost
+  - gru_no_graph

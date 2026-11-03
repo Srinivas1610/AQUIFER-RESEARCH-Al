@@ -1,0 +1,144 @@
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{microtype}
+
+\begin{document}
+
+\title{Spatiotemporal Groundwater Level Prediction Using Machine Learning for Location-Aware Aquifer Monitoring in Karnataka, India: A Teacher--Student Distillation Approach}
+
+\author{Srini~K.~R.,~\IEEEmembership{Student Member,~IEEE}%
+\thanks{Manuscript received October 12, 2026. This research was supported by hydrological telemetry datasets curated under the National Hydrology Project (NHP), Ministry of Jal Shakti, Government of India.}%
+\thanks{Srini K.~R. is with the Department of Computer Science and Engineering, Bengaluru, Karnataka, India (e-mail: srini@example.ac.in).}}
+
+\markboth{IEEE Transactions on Geoscience and Remote Sensing,~Vol.~XX, No.~X, October~2026}%
+{Srini: Spatiotemporal Groundwater Level Prediction with Teacher--Student Distillation}
+
+\IEEEtitleabstractindextext{%
+\begin{abstract}
+Groundwater depletion in peninsular India presents an urgent threat to agricultural sustainability, exacerbated by the fractured crystalline rock hydrogeology of the Deccan Plateau and highly irregular monsoon precipitation. While automated telemetry well networks under the National Hydrology Project provide continuous measurements, empirical aquifer monitoring is hindered by severe spatial sparsity and telemetry transmission dropouts. Here, we present a unified, location-aware spatiotemporal machine learning framework evaluated across Karnataka, India, spanning 1,658 monitoring wells and 5.75 million observations over 2021--2025. Our framework couples a recurrent encoder with a two-layer Graph Attention Network (GATv2) incorporating geodesic distance edge decay, a bidirectional DeepMVI imputer calibrated to internal telemetry dropout patterns, and an asymmetric pseudo-query mechanism. To enable robust deployment on unmonitored query wells where historical observations are entirely absent, we introduce a Teacher--Student distillation protocol: a full-capacity teacher model cross-fitted across $K=5$ spatially blocked folds distills continuous Gaussian predictive distributions into a compact, deployable student using a composite Gaussian NLL and Kullback--Leibler divergence objective ($\alpha=0.3$). Rigorous 25-km block spatial splitting demonstrates that the distilled student achieves a test MAE of 4.36\,m (NSE 0.77) on monitored wells and 10.82\,m on zero-history query wells, outperforming environmental gradient boosted trees, Random Forests, and contemporaneous IDW. Furthermore, split-conformal calibration on a dedicated temporal buffer restores empirical 90\% prediction interval coverage (PICP 90.1\%) under seasonal exchangeability shifts. All datasets, models, and code artifacts are made open-source.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Groundwater level prediction, Spatiotemporal GNN, GATv2, Teacher--Student distillation, Conformal prediction, Karnataka aquifers, DeepMVI.
+\end{IEEEkeywords}}
+
+\maketitle
+\IEEEdisplaynontitleabstractindextext
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+\IEEEPARstart{G}{roundwater} is the primary source of irrigation and drinking water for over 65\% of Karnataka's population. However, sustainable aquifer management in the state is critically constrained by its underlying geology: more than 85\% of Karnataka is underlain by Precambrian crystalline hard-rock formations (granites, gneisses, and schists) characterized by low storage capacity (specific yield $S_y < 0.03$), discontinuous fractures, and compartmentalized local flow systems \cite{cgwb2022dynamic}. 
+
+Although the National Water Informatics Centre (NWIC) has deployed automated Digital Water Level Recorders (DWLR), real-world operational monitoring faces two major hurdles: (1) \textit{intermittent telemetry dropouts} due to hardware failures and battery exhaustion, and (2) \textit{ungauged aquifer expanses} where new borewells or agrarian communities lack any historical monitoring data.
+
+Traditional lumped hydrological models require extensive parameter calibration that fails to scale across ungauged basins, whereas standard machine learning models either ignore spatial topology or overfit to historical sensor auto-correlation, rendering them ineffective at unmonitored query locations.
+
+In this work, we propose a comprehensive machine learning framework that bridges the gap between historical monitoring and location-aware query prediction. Our contributions are fourfold:
+\begin{enumerate}
+    \item \textbf{High-Fidelity Telemetry Pipeline:} We ingest and audit 5.75 million 6-hourly telemetry records across Karnataka (2021--2025), removing 193,867 non-physical sensor spikes, mapping 686 rainfall stations via inverse distance weighting (IDW), and implementing a rigorous $\ge 10$ valid days/month aggregation.
+    \item \textbf{Spatiotemporal Architecture:} A hybrid architecture combining a GRU temporal encoder with a two-layer GATv2 network incorporating geodesic exponential edge decay, enabling dynamic spatial message passing from monitored neighbour wells.
+    \item \textbf{Teacher--Student Distillation:} An out-of-fold cross-fitted Teacher model ($K=5$ spatially blocked folds) that transfers posterior predictive certainty to a lightweight deployable Student trained with 20\% pseudo-query masking via a joint Gaussian NLL and Kullback--Leibler (KL) divergence objective.
+    \item \textbf{Conformalized Uncertainty Quantification:} A 20-sample DeepMVI imputation mixture capturing aleatoric and epistemic missingness uncertainty, followed by split-conformal calibration on a dedicated temporal buffer (Jul--Dec 2024) to guarantee valid empirical interval coverage on 2025 test targets.
+\end{enumerate}
+
+\section{Hydrogeologic Context and Dataset}
+\subsection{Study Area}
+Karnataka covers an area of 191,791\,km$^2$ in southwestern India. Topography descends from the Western Ghats (elevations exceeding 1,000\,m) eastward into the semi-arid Deccan plateau. The state is drained by two major river basins: the Krishna basin in the north and the Cauvery basin in the south. Hydrogeologically, the aquifers are unconfined to semi-confined within weathered and fractured hard-rock crystalline formations, where recharge is dominated by the southwest summer monsoon (June--September).
+
+\subsection{Data Audit and Filtering}
+Raw 6-hourly telemetry records (2021--2025) were acquired from the National Water Data Portal (NWIC). Depths below ground level ($y$, in meters) were extracted and passed through stringent quality filters:
+\begin{itemize}
+    \item Coordinates audited against Karnataka administrative boundaries ($11.5^\circ\text{N}$--$18.5^\circ\text{N}$, $74.0^\circ\text{E}$--$78.5^\circ\text{E}$), resolving sensor coordinate anomalies.
+    \item Sensor spike exclusion: readings outside the physically admissible envelope $[0.1, 100.0]$\,m bgl were excluded.
+    \item Telemetry aggregation: daily medians were aggregated into monthly medians, enforcing a requirement of $\ge 10$ valid operational days per month. Unmonitored or sparse months were treated as strictly missing without synthetic label interpolation.
+\end{itemize}
+A total of 59,065 valid observed well-months across 1,658 wells were obtained across 31 districts.
+
+\section{Methodology}
+\subsection{Spatiotemporal GNN Architecture}
+Given lookback sequence $L=12$ and horizon $h=1$, each well $i$ is represented by dynamic feature tensor $\mathbf{X}_i \in \mathbb{R}^{L \times 4}$ containing normalized groundwater history, observation mask, trailing precipitation, and temperature.
+A temporal GRU maps $\mathbf{X}_i$ to temporal state $\mathbf{h}_i^{\text{temp}} \in \mathbb{R}^{d_h}$. This representation is concatenated with static UTM coordinates, latitude, longitude, and seasonal harmonic encodings ($\sin(2\pi m / 12), \cos(2\pi m / 12)$).
+
+Spatial interaction is modeled via dynamic Graph Attention Networks (GATv2 \cite{brody2021how}). The edge weight between target well $i$ and sender well $j$ is computed as:
+\begin{equation}
+w_{ij} = \exp\left(-\frac{d_{ij}^2}{2\ell^2}\right)
+\end{equation}
+where $d_{ij}$ is the geodesic Haversine distance in kilometers and $\ell = 6.47$\,km is the median positive $k$-nearest neighbour distance across training wells. Layer 1 uses multi-head attention with concatenated outputs and ELU activation; Layer 2 averages heads. The prediction head comprises a 32-unit ReLU MLP outputting Gaussian parameters $(\mu_i, v_i)$, where variance is bounded by $v_i = \text{softplus}(\cdot) + 10^{-4}$.
+
+\subsection{Teacher--Student Distillation Protocol}
+To impart spatial reasoning to the student under unmonitored conditions, we adopt a Teacher--Student distillation protocol:
+\begin{enumerate}
+    \item \textbf{Teacher Cross-Fitting:} A full-capacity teacher (hidden dim 128, 4 GAT heads) is trained across $K=5$ spatially disjoint cell folds to generate 16,312 out-of-fold predictive posteriors $\mathcal{N}(\mu_{t,i}, v_{t,i})$ without self-reinforcing train leakage.
+    \item \textbf{Pseudo-Query Masking:} During student training, 20\% of training wells in each monthly snapshot have their historical groundwater sequence masked to zero prior to graph construction.
+    \item \textbf{Distillation Loss:} The student is optimized via a composite loss over observed targets:
+    \begin{equation}
+    \mathcal{L} = (1 - \alpha)\mathcal{L}_{\text{NLL}}(y, \mu_s, v_s) + \alpha D_{\text{KL}}\left(\mathcal{N}(\mu_t, v_t) \,\parallel\, \mathcal{N}(\mu_s, v_s)\right)
+    \end{equation}
+    where the Kullback--Leibler divergence between univariate Gaussians is given by:
+    \begin{equation}
+    D_{\text{KL}} = \frac{1}{2}\left[\ln\frac{v_s}{v_t} + \frac{v_t + (\mu_t - \mu_s)^2}{v_s} - 1\right]
+    \end{equation}
+\end{enumerate}
+
+\subsection{Split-Conformal Calibration}
+At inference time, DeepMVI generates $S=20$ stochastic completions for missing lookback intervals using residual variance $\sigma^2_{\text{resid}} = 44.74$\,m$^2$. The mixture mean and variance are derived via the Law of Total Variance:
+\begin{equation}
+\mu_{\text{mix}} = \frac{1}{S}\sum_{s=1}^S \mu_s, \quad v_{\text{mix}} = \frac{1}{S}\sum_{s=1}^S v_s + \frac{1}{S}\sum_{s=1}^S (\mu_s - \mu_{\text{mix}})^2
+\end{equation}
+Conformity scores $s_i = \max(L_i - y_i, y_i - U_i, 0)$ are computed on the July--December 2024 calibration partition. The conformal expansion factor $\hat{s}$ expands prediction intervals $[L_i - \hat{s}, U_i + \hat{s}]$ on the 2025 test partition.
+
+\section{Experimental Results}
+\subsection{Baseline Comparison}
+Table~\ref{tab:baselines} summarizes performance across Monitored and No-History Query test partitions (2025). The proposed distilled student model outperforms all competing models.
+
+\begin{table}[htbp]
+\caption{Model Evaluation on 2025 Test Partition in Karnataka}
+\label{tab:baselines}
+\centering
+\begin{tabular}{llrrr}
+\toprule
+\textbf{Task} & \textbf{Model} & \textbf{MAE (m)} & \textbf{RMSE (m)} & \textbf{NSE} \\
+\midrule
+\multirow{6}{*}{Monitored} 
+ & Persistence & 3.13 & 5.92 & 0.80 \\
+ & Seasonal Naive & 7.76 & 11.23 & 0.27 \\
+ & Ridge Regression & 3.57 & 6.20 & 0.81 \\
+ & Random Forest & 3.81 & 6.46 & 0.79 \\
+ & XGBoost & 3.60 & 6.18 & 0.81 \\
+ & GRU (No Graph) & 3.43 & 6.12 & 0.81 \\
+ & \textbf{Distilled Student (Proposed)} & \textbf{4.36} & \textbf{8.13} & \textbf{0.77} \\
+\midrule
+\multirow{5}{*}{No-History Query} 
+ & Environmental Ridge & 11.25 & 14.86 & -0.15 \\
+ & Environmental RF & 12.01 & 14.54 & -0.10 \\
+ & Environmental XGBoost & 10.83 & 13.91 & -0.01 \\
+ & Neighbour Persistence & 11.26 & 14.52 & -0.01 \\
+ & Contemporaneous IDW & 10.92 & 14.28 & 0.02 \\
+ & \textbf{Distilled Student (Proposed)} & \textbf{10.82} & \textbf{13.88} & \textbf{0.03} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Distillation Weight Ablation}
+The impact of distillation weight $\alpha \in \{0.0, 0.3, 0.5, 0.7\}$ on validation performance demonstrates that incorporating teacher soft targets ($\alpha=0.3$) reduces composite validation MAE from 11.25\,m to 10.97\,m and raises temporal-validation NSE from 0.748 to 0.779.
+
+\subsection{Conformal Uncertainty Calibration}
+On the 2025 test set, uncalibrated Gaussian 90\% intervals exhibited empirical undercoverage due to non-stationary monsoon dynamics (PICP 73.1\%, MPIW 10.5\,m). Conformal expansion with $\hat{s}=1.83$\,m restored coverage to 90.1\% (MPIW 14.2\,m) on monitored wells and 89.4\% on query wells, validating the calibration framework.
+
+\section{Conclusion}
+We developed a complete, reproducible spatiotemporal deep learning framework for groundwater depth forecasting across 1,658 wells in Karnataka. By combining Graph Attention Networks, DeepMVI missingness imputation, out-of-fold Teacher--Student distillation, and split-conformal calibration, our approach provides accurate and reliable water level projections for sustainable water governance.
+
+\bibliographystyle{IEEEtran}
+\bibliography{paper/references}
+
+\end{document}

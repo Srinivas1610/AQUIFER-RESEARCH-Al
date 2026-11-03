@@ -1,0 +1,8 @@
+_base_: base.yaml
+mode: teacher
+model:
+  gru_hidden: 128
+  gat_heads: 4
+  dropout: 0.1
+training:
+  pseudo_query_frac: 0.0  # Teacher sees all history

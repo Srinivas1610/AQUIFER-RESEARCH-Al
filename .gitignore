@@ -1,0 +1,55 @@
+# ============================================================
+# .gitignore — AQUIFER-RESEARCH-Al
+# ============================================================
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+/dist/
+/build/
+*.egg
+.eggs/
+
+# ---- Virtual Environment ----
+.venv/
+venv/
+ENV/
+
+# ---- pytest ----
+.pytest_cache/
+htmlcov/
+.coverage
+.tox/
+.nox/
+
+# ---- IDE / Editor ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Raw Data (too large for GitHub, ~1.1 GB) ----
+# Intermediate and processed data are small and included.
+data/raw/
+
+# ---- Node.js (demo_app) ----
+demo_app/node_modules/
+
+# ---- OS ----
+*.log
+*.tmp
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# ---- Shared bundle for Google Drive (local only) ----
+ml shared/
+ml_shared.zip

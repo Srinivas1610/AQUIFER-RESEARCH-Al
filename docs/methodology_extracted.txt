@@ -1,0 +1,230 @@
+Groundwater Prediction Methodology Karnataka, India
+Spatiotemporal Groundwater Level Prediction
+Using Machine Learning for Location-Aware Aquifer Monitoring
+Proposed Research Methodology: Karnataka, India
+Praneeth N Naik (240905168)|Moturi Venkatesh (240905298)
+Annapureddy Srinivasa Reddy (240905240)
+Department of Computer Science and Engineering,
+Manipal Institute of Technology, Manipal, Karnataka, India
+Objective.The study will combine incomplete groundwater records, environmental drivers, and
+spatial relationships to forecast future levels, reconstruct missing periods, and predict at locations
+without groundwater histories. The research gap will be addressed through an inductive spatiotemporal
+model, explicit missing-input uncertainty, and spatially blocked evaluation.
+A. Overall System Architecture
+Inputswill include groundwater measurements and timestamps, well coordinates, meteorological
+histories, and verified static attributes.Processingwill include quality control, monthly aggregation,
+spatial matching, missing-data reconstruction, temporal encoding, graph message passing, and uncer-
+tainty calibration.Outputswill be groundwater-depth estimates, nominal 90% prediction intervals,
+reconstructed observations, and spatial error summaries.
+Input records
+and coordinates
+Quality control, alignment
+and observation masks
+Imputation samples
+and GRU–GATv2 model
+Temporal and spatial
+evaluation
+Depth estimates and
+prediction intervals
+Predictive mixture
+and calibration
+Figure 1: Proposed workflow. Learned preprocessing and model fitting will use training data only.
+Threetaskswillbeevaluatedseparately: forecastingatmonitoredwells, retrospectivegapreconstruction,
+and no-history prediction at spatial query locations. Forecasts will use only information available at the
+prediction date. Reconstruction may use observations before and after a historical gap. The primary
+horizon will be one month; direct three- and six-month forecasts will be secondary experiments where
+coverage permits.
+B. Dataset Description
+Source and study period.The intended period will be January 2021–December 2025. Groundwater
+records will be obtained from Karnataka telemetry resources on the National Water Data Portal
+(NWDP), maintained by the National Water Informatics Centre. The portal identifies 2021–2025
+groundwater resources and Karnataka rainfall listings [1]. Actual record coverage, cadence, coordinates,
+units, and measurement references will be audited before modelling.
+T arget and sample unit.The intended target will be groundwater depth in metres below ground
+level, after verifying the source definition. Smaller depth will indicate shallower groundwater; this
+quantity will not be interpreted directly as hydraulic head. Each modelling row will represent one
+canonical well and month. Source networks will be deduplicated only when physical well identity is
+verified.
+Number of samples.The raw datasets have not yet been ingested, so empirical counts are pending.
+The data inventory will report unique wells, raw measured records, valid observed well–month targets,
+missingness, and usable windows in each partition. WithN wells and 60 calendar months,60N is the
+possible grid size, not the measured sample count. A complete series with lookbackL and horizonh
+will provide at most60−L−h + 1windows: 48 for L = 12and h = 1. Imputed targets will not be
+counted as measured samples.
+1
+---PAGE---
+Groundwater Prediction Methodology Karnataka, India
+Table 1: Input groups and proposed features.
+Group V ariables Role
+Groundwater Depth, timestamp, well ID, coordinates,
+observation mask
+Target, historical state, and monitoring
+availability
+Meteorology Rainfall, temperature; other verified weather
+variables
+Recharge and evaporative-demand indicators
+Static attributes Coordinates, elevation; verified basin,
+lithology, aquifer and well attributes
+Spatial context and site differences
+Optional drivers Discharge, reservoir/tank information,
+satellite/reanalysis, land use, abstraction
+proxies
+Feature-group comparisons, subject to source
+verification and overlap
+Preprocessing will proceed as follows:
+1. Audit identifiers, coordinates, timestamps, units, duplicates, sensor errors, and measurement-
+reference changes. Flag suspicious values; exclude them only with a documented reason.
+2. Convert timestamps consistently to Asia/Kolkata. Reduce telemetry to daily medians, then monthly
+medians. Require at least ten valid observation days per telemetry month; other targets will
+remain missing. Sparse seasonal measurements will not become measured monthly labels through
+interpolation.
+3. Aggregate rainfall using verified incremental/cumulative definitions and retain monthly coverage.
+Map meteorological stations to well coordinates using up to five available neighbours and inverse-
+distance weighting with power two. Use geodesic distances; join station IDs directly only for verified
+shared installations.
+4. Preserve original target-observation masks and separate input-hiding masks. Fit scaling, imputers,
+feature selection, and empirical thresholds within each training fold. Use global training-target
+scaling, since query wells have no history for per-well scaling.
+5. Fill missing environmental inputs with their latest known value for at most one month, then a
+training-only calendar-month median, always retaining availability flags. Missing static values will
+use training medians or an unknown category.
+The core training cohort will require at least 70% valid monthly targets during 2021–2023. Other
+training wells will support a separate sparse-data analysis. Test wells will be scored wherever genuine
+observations exist.
+C. Proposed Model / Algorithm
+Feature engineering.Historical groundwater, input masks, rainfall and temperature sequences,
+trailing three- and six-month rainfall totals, and seasonal sine/cosine encodings will form the initial
+dynamic inputs. Coordinates and verified static attributes will supply spatial context. Lagged
+relationships and validation-based feature-group ablation will guide selection; weak instantaneous
+correlation alone will not justify removal.
+Temporal and spatial learning.A GRU will encode a six- or twelve-month history, followed by
+two GATv2 layers and an MLP output head. Graph learning is motivated by multi-well studies in the
+submitted survey [2], while GATv2 supports query-dependent attention [3]. Letyi,t denote depth,ri,t
+the input mask,xi,t the environmental vector, andai the static attributes:
+zi,t = GRU
+(︂
+[˜︁yi,τ,ri,τ,xi,τ ]tτ=t−L+1
+)︂
+,(1)
+gi,t = GATv2(2) ([zi,t,ai],G),(2)
+(µi,t,h,vi,t,h) = MLP(gi,t,ct+h).(3)
+2
+---PAGE---
+Groundwater Prediction Methodology Karnataka, India
+Here ct+h is the known target-month encoding. Future observed environmental values will not enter
+forecasting. The variance output will use softplus plus10−4 on the standardized scale.
+Directed edges will connect each target tok nearest eligible monitored wells, initiallyk = 5, with
+self-loops. Edge attributes will beeij = exp[−d2ij/(2ℓ2)], whereℓ is the median positive training-graph
+neighbour distance. They will be supplied explicitly to GATv2. The first layer will concatenate
+attention heads with ELU; the second will average heads. A 32-unit ReLU MLP will predict mean and
+variance. Edges will represent statistical proximity, not verified flow paths.
+T raining objective.A Gaussian output distribution will be fitted using observed targets only. For
+original observation maskoi,t+h:
+Lh =
+∑︁
+i,toi,t+h
+[︁
+log(2πvi,t,h) + (yi,t+h−µi,t,h)2/vi,t,h]︁
+2∑︁i,toi,t+h .(4)
+Imputed targets will never receive an observed-target mask. The conditional Gaussian assumption will
+be checked using residual and interval diagnostics.
+Prediction without target-well history .A query node will receive environmental history, static
+attributes, and an all-missing groundwater mask, with zero placeholders on the standardized scale. It
+will receive neighbour messages but will not provide messages to other nodes. No well-specific learned
+ID embedding will be used. During training, 20% of target wells per batch will act as pseudo-queries:
+their complete groundwater input histories and derived features will be hidden before imputation and
+graph construction, while observed future targets remain available for the loss. This will teach the
+model the inference condition. The task is stricter than excluding a well from training while providing
+its groundwater history at inference, as in Zhuang et al. [4].
+Missing-data uncertainty .DeepMVI will be fitted on training records using artificial isolated and
+block masks [5]. Its conditional Gaussian sampling model will use residual variance estimated from an
+internal 10% masked-training subset. For forecasting, reconstruction inputs will be truncated at each
+origin; retrospective reconstruction may use surrounding observations. Entirely unmonitored query
+histories will not be imputed into groundwater features.
+Twenty reconstructed histories will be sampled at inference, with measured values fixed. Their forecast
+distributions will form
+p(y|I t)≈ 120 20∑︂b=1N(y;µ (b),v (b)).(5)
+The point estimate will be the mean of component means; base 90% limits will be the 0.05 and
+0.95 mixture quantiles. Separate calibration sets will expand intervals using scoressj = max(Lj−
+yj,yj−Uj, 0)and the ⌈(ncal + 1)0.90⌉-th ordered score. Temporal and spatial dependence may violate
+conformal exchangeability assumptions [6]; empirical coverage will therefore be reported without an
+unconditional guarantee. Sampling will propagate the specified imputation uncertainty, rather than
+claim a complete epistemic-uncertainty decomposition.
+D. Training & Testing Strategy
+Spatial split.Wells will be grouped into 25-km cells using EPSG:32643 coordinates and cell indices
+(⌊x/25000⌋,⌊y/ 25000⌋). Occupied cells will be sorted and shuffled with seed 42. Whole cells will
+be assigned sequentially to approximately 20% test wells, then 16% spatial-validation wells, leaving
+approximately 64% training wells. Actual assignments will be recorded. Validation/test wells will enter
+only as query nodes, with all groundwater histories hidden. Geodesic distances will define graph edges
+and station matching.
+Validation and tuning.Rolling-origin development checks will fit through December 2022 and
+validate January–June 2023, then fit through June 2023 and validate July–December 2023. Every
+learned transformation will be refitted inside its fold. Twelve configurations will be sampled using
+3
+---PAGE---
+Groundwater Prediction Methodology Karnataka, India
+Table 2: Planned chronological split, subject to verified coverage.
+Stage Period Use
+Initial fitting 2021–2023 Training wells; preprocessing, imputer and model fitting
+Validation/tuning Jan.–Jun. 2024 Monitored temporal validation and no-history spatial validation
+Final refitting 2021–Jun. 2024 Training wells only; selected configuration
+Calibration Jul.–Dec. 2024 Separate monitored and no-history interval calibration; no tuning
+Final testing 2025 Future monitored forecasts and final unseen-well predictions
+GRU hidden sizes{32, 64}, lookbacks{6, 12}, neighbours{3, 5, 10}, heads{2, 4}, dropout{0.1, 0.3},
+and learning rates{10−3, 3× 10−4}. Adam, weight decay10−4, gradient clipping at 1, batches of four
+monthly graph snapshots, and at most 200 epochs will be used. Early stopping will use validation
+RMSE with patience 20; final refitting will use the selected epoch count.
+Configurations will be ranked by the mean equal-well-weight RMSE across monitored and no-history
+validation tasks. Final fits will use seeds 42, 43, and 44 with separately calibrated intervals. Calibration
+and test observations will not select features or parameters. Test forecasts will begin after calibration,
+using newly available histories without updating model weights.
+Experiments and comparisons.
+1. Forecast monitored wells against persistence, seasonal naive, Ridge, Random Forest, XGBoost, and
+a GRU without graph learning.
+2. Test no-history wells against environmental/static regressors and neighbour-persistence forecasts.
+IDW using target-date neighbour observations will be reported separately as contemporaneous
+spatial estimation.
+3. Hide 10%, 20%, 30%, and 40% of observed values using isolated and one- to three-month block
+masks, with five realizations each. Score reconstruction only at hidden measured values; assess
+forecast degradation separately with scoring targets intact.
+4. Remove graph learning, static attributes, pseudo-query training, or imputation sampling one at a
+time; test optional feature groups using the same partitions and comparable fitting budgets.
+Source versions, quality-control rules, fold manifests, features, configurations, seeds, software versions,
+and predictions will be saved. Checks will confirm that query-well groundwater and post-origin
+observations never enter forecast inputs.
+E. Evaluation Metrics
+The target is continuous, so regression metrics will be used:
+MAE = 1n∑︂j |yj−ˆ︁yj|,RMSE =
+⌜⃓⃓⎷ 1n∑︂j (yj−ˆ︁yj)2,(6)
+NSE = 1−
+∑︁
+j(yj−ˆ︁yj)2∑︁
+j(yj−y)2 .(7)
+MAE will measure typical error; RMSE will emphasize large errors. Both will be reported in metres
+after inverse scaling. NSE will compare predictions with the observed-mean benchmark. Standard
+SSE-based regression R2 is identical on the same targets and will not be treated as independent
+evidence.
+For intervals, prediction-interval coverage will bePICP =n−1∑︁j 1{Lj≤y j≤U j}, and mean width
+will be MPIW =n−1∑︁j(Uj−Lj). Together these will assess reliability and informativeness relative
+to nominal 90% coverage. Base and calibrated intervals will be reported separately.
+4
+---PAGE---
+Groundwater Prediction Methodology Karnataka, India
+Each task/horizon will report target and well counts, pooled metrics, and equally weighted per-well
+metrics. Per-well NSE requires at least six targets and nonzero variance. Reconstruction scoring will use
+measured values. Three-seed mean and standard deviation, spatial errors, and distance-to-training-well
+summaries will assess stability and transfer.
+References
+[1] National Water Informatics Centre, National Water Data Portal: Karnataka groundwater telemetry, Kar-
+nataka Ground Water Department telemetry, and Karnataka rainfall. Accessed 10 October 2026.
+[2] M. L. Taccari et al.,Spatial-temporal graph neural networks for groundwater data, Scientific Reports, 14,
+24564, 2024. doi:10.1038/s41598-024-75385-2.
+[3] S. Brody, U. Alon, and E. Yahav,How Attentive are Graph Attention Networks?arXiv:2105.14491, 2021.
+arXiv paper.
+[4] C. Zhuang, L. Cui, and Y. Cui,Enhancing groundwater level prediction with a hybrid deep learning model in
+Jinan City, China, Scientific Reports, 15, 44535, 2025. doi:10.1038/s41598-025-28200-5.
+[5] P. Bansal, P. Deshpande, and S. Sarawagi,Missing Value Imputation on Multidimensional Time Series,
+arXiv:2103.01600, 2021. arXiv paper.
+[6] A. Auer et al.,A data-centric perspective on the information needed for hydrological uncertainty predictions,
+Hydrology and Earth System Sciences, 28, 4099–4126, 2024. doi:10.5194/hess-28-4099-2024.
+5

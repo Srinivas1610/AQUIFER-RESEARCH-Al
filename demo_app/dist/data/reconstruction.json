@@ -1,0 +1,46 @@
+[
+  {
+    "missing_rate": 0.1,
+    "missing_pct": "10%",
+    "n_realizations": 5,
+    "mae_mean": 3.501,
+    "mae_std": 0.132,
+    "rmse_mean": 6.226,
+    "rmse_std": 0.541,
+    "nse_mean": 0.846,
+    "nse_std": 0.03
+  },
+  {
+    "missing_rate": 0.2,
+    "missing_pct": "20%",
+    "n_realizations": 5,
+    "mae_mean": 3.576,
+    "mae_std": 0.118,
+    "rmse_mean": 6.46,
+    "rmse_std": 0.363,
+    "nse_mean": 0.832,
+    "nse_std": 0.021
+  },
+  {
+    "missing_rate": 0.3,
+    "missing_pct": "30%",
+    "n_realizations": 5,
+    "mae_mean": 3.643,
+    "mae_std": 0.059,
+    "rmse_mean": 6.706,
+    "rmse_std": 0.17,
+    "nse_mean": 0.822,
+    "nse_std": 0.013
+  },
+  {
+    "missing_rate": 0.4,
+    "missing_pct": "40%",
+    "n_realizations": 5,
+    "mae_mean": 3.829,
+    "mae_std": 0.083,
+    "rmse_mean": 7.036,
+    "rmse_std": 0.223,
+    "nse_mean": 0.801,
+    "nse_std": 0.01
+  }
+]

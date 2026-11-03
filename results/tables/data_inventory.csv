@@ -1,0 +1,5 @@
+dataset,cadence,raw_records,unique_entities,valid_coords_entities,valid_observed_months,date_range,units
+Groundwater Telemetry (GWD Karnataka),6-hourly,5747936,1798,1658,59065,2021-01 to 2025-12,meters below ground level (m bgl)
+Rainfall Telemetry (Karnataka Dept),hourly,683619,686,686,41160,2021-01 to 2025-12,millimeters (mm)
+Temperature Telemetry (Karnataka Dept),hourly,2415543,132,132,7920,2021-01 to 2025-12,degrees Celsius (°C)
+Derived Monthly Target Grid,monthly (>=10 days),1322841,1658,1658,59065,2021-01 to 2025-12,depth m bgl (median)

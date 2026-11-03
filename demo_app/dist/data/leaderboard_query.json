@@ -1,0 +1,90 @@
+[
+  {
+    "model": "Distilled Student GNN (Proposed)",
+    "model_type": "Spatiotemporal Distilled GNN",
+    "is_proposed": true,
+    "mae": 12.16,
+    "rmse": 17.047,
+    "nse": 0.024,
+    "picp": 91.4,
+    "mpiw": 43.62,
+    "n_samples": 3250
+  },
+  {
+    "model": "Residual-Distilled Student GNN",
+    "model_type": "Dual-Mode Residual GNN",
+    "is_proposed": true,
+    "mae": 11.014,
+    "rmse": 17.059,
+    "nse": 0.022,
+    "picp": 91.8,
+    "mpiw": 43.62,
+    "n_samples": 3250
+  },
+  {
+    "model": "Environmental Ridge",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 11.254,
+    "rmse": 18.533,
+    "nse": -0.154,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 3250
+  },
+  {
+    "model": "Environmental RF",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 12.009,
+    "rmse": 18.105,
+    "nse": -0.101,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 3250
+  },
+  {
+    "model": "Environmental XGBoost",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 10.825,
+    "rmse": 17.332,
+    "nse": -0.009,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 3250
+  },
+  {
+    "model": "Neighbour-Persistence",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 11.264,
+    "rmse": 17.305,
+    "nse": -0.006,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 3250
+  },
+  {
+    "model": "Contemporaneous IDW",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 10.916,
+    "rmse": 17.083,
+    "nse": 0.019,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 3250
+  },
+  {
+    "model": "Naik et al. (GATv2+GRU Cold-Start)",
+    "model_type": "External Baseline",
+    "is_proposed": false,
+    "mae": 6.939,
+    "rmse": 14.523,
+    "nse": -0.059,
+    "picp": 83.8,
+    "mpiw": 17.9,
+    "n_samples": 2397
+  }
+]

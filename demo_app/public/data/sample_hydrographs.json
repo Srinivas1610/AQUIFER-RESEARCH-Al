@@ -1,0 +1,1032 @@
+{
+  "Abbinahole": {
+    "well_id": "Abbinahole",
+    "task": "monitored",
+    "n_obs": 12,
+    "series": [
+      {
+        "month": "2025-01",
+        "observed": 8.07,
+        "student_mu": 8.04,
+        "lower_90": 1.17,
+        "upper_90": 14.9,
+        "variance": 17.413
+      },
+      {
+        "month": "2025-02",
+        "observed": 10.34,
+        "student_mu": 10.28,
+        "lower_90": 3.21,
+        "upper_90": 17.35,
+        "variance": 18.477
+      },
+      {
+        "month": "2025-03",
+        "observed": 12.61,
+        "student_mu": 12.9,
+        "lower_90": 5.01,
+        "upper_90": 20.79,
+        "variance": 23.013
+      },
+      {
+        "month": "2025-04",
+        "observed": 13.53,
+        "student_mu": 13.74,
+        "lower_90": 5.0,
+        "upper_90": 22.48,
+        "variance": 28.243
+      },
+      {
+        "month": "2025-05",
+        "observed": 13.52,
+        "student_mu": 13.28,
+        "lower_90": 5.24,
+        "upper_90": 21.33,
+        "variance": 23.917
+      },
+      {
+        "month": "2025-06",
+        "observed": 15.76,
+        "student_mu": 11.98,
+        "lower_90": 4.61,
+        "upper_90": 19.36,
+        "variance": 20.101
+      },
+      {
+        "month": "2025-07",
+        "observed": 18.48,
+        "student_mu": 13.67,
+        "lower_90": 5.27,
+        "upper_90": 22.07,
+        "variance": 26.085
+      },
+      {
+        "month": "2025-08",
+        "observed": 8.45,
+        "student_mu": 14.69,
+        "lower_90": 2.05,
+        "upper_90": 27.33,
+        "variance": 59.049
+      },
+      {
+        "month": "2025-09",
+        "observed": 18.24,
+        "student_mu": 7.48,
+        "lower_90": 0.7,
+        "upper_90": 14.27,
+        "variance": 16.999
+      },
+      {
+        "month": "2025-10",
+        "observed": 20.72,
+        "student_mu": 14.55,
+        "lower_90": 2.91,
+        "upper_90": 26.19,
+        "variance": 50.075
+      },
+      {
+        "month": "2025-11",
+        "observed": 20.66,
+        "student_mu": 15.51,
+        "lower_90": -4.6,
+        "upper_90": 35.62,
+        "variance": 149.525
+      },
+      {
+        "month": "2025-12",
+        "observed": 9.55,
+        "student_mu": 17.48,
+        "lower_90": -5.34,
+        "upper_90": 40.29,
+        "variance": 192.346
+      }
+    ]
+  },
+  "Adagall_1": {
+    "well_id": "Adagall_1",
+    "task": "monitored",
+    "n_obs": 12,
+    "series": [
+      {
+        "month": "2025-01",
+        "observed": 44.0,
+        "student_mu": 44.38,
+        "lower_90": 13.76,
+        "upper_90": 75.0,
+        "variance": 346.6
+      },
+      {
+        "month": "2025-02",
+        "observed": 44.01,
+        "student_mu": 47.99,
+        "lower_90": 16.26,
+        "upper_90": 79.73,
+        "variance": 372.267
+      },
+      {
+        "month": "2025-03",
+        "observed": 44.0,
+        "student_mu": 49.2,
+        "lower_90": 17.16,
+        "upper_90": 81.24,
+        "variance": 379.373
+      },
+      {
+        "month": "2025-04",
+        "observed": 43.99,
+        "student_mu": 49.75,
+        "lower_90": 17.58,
+        "upper_90": 81.92,
+        "variance": 382.491
+      },
+      {
+        "month": "2025-05",
+        "observed": 43.99,
+        "student_mu": 49.68,
+        "lower_90": 17.53,
+        "upper_90": 81.84,
+        "variance": 382.114
+      },
+      {
+        "month": "2025-06",
+        "observed": 43.99,
+        "student_mu": 49.39,
+        "lower_90": 17.33,
+        "upper_90": 81.45,
+        "variance": 379.878
+      },
+      {
+        "month": "2025-07",
+        "observed": 43.97,
+        "student_mu": 48.67,
+        "lower_90": 16.78,
+        "upper_90": 80.56,
+        "variance": 375.95
+      },
+      {
+        "month": "2025-08",
+        "observed": 44.05,
+        "student_mu": 48.22,
+        "lower_90": 16.45,
+        "upper_90": 79.99,
+        "variance": 373.07
+      },
+      {
+        "month": "2025-09",
+        "observed": 43.95,
+        "student_mu": 46.09,
+        "lower_90": 14.88,
+        "upper_90": 77.3,
+        "variance": 360.084
+      },
+      {
+        "month": "2025-10",
+        "observed": 31.98,
+        "student_mu": 44.17,
+        "lower_90": 13.49,
+        "upper_90": 74.85,
+        "variance": 347.853
+      },
+      {
+        "month": "2025-11",
+        "observed": 29.79,
+        "student_mu": 35.29,
+        "lower_90": 6.91,
+        "upper_90": 63.67,
+        "variance": 297.74
+      },
+      {
+        "month": "2025-12",
+        "observed": 32.16,
+        "student_mu": 33.76,
+        "lower_90": 5.66,
+        "upper_90": 61.85,
+        "variance": 291.703
+      }
+    ]
+  },
+  "Adavihalli (Nichapura)": {
+    "well_id": "Adavihalli (Nichapura)",
+    "task": "monitored",
+    "n_obs": 12,
+    "series": [
+      {
+        "month": "2025-01",
+        "observed": 19.08,
+        "student_mu": 15.19,
+        "lower_90": -3.35,
+        "upper_90": 33.72,
+        "variance": 126.954
+      },
+      {
+        "month": "2025-02",
+        "observed": 19.28,
+        "student_mu": 15.2,
+        "lower_90": -3.56,
+        "upper_90": 33.95,
+        "variance": 129.998
+      },
+      {
+        "month": "2025-03",
+        "observed": 19.75,
+        "student_mu": 15.24,
+        "lower_90": -3.98,
+        "upper_90": 34.45,
+        "variance": 136.471
+      },
+      {
+        "month": "2025-04",
+        "observed": 20.3,
+        "student_mu": 15.15,
+        "lower_90": -3.05,
+        "upper_90": 33.35,
+        "variance": 122.45
+      },
+      {
+        "month": "2025-05",
+        "observed": 20.81,
+        "student_mu": 15.03,
+        "lower_90": -1.68,
+        "upper_90": 31.74,
+        "variance": 103.232
+      },
+      {
+        "month": "2025-06",
+        "observed": 21.03,
+        "student_mu": 14.97,
+        "lower_90": -0.88,
+        "upper_90": 30.82,
+        "variance": 92.893
+      },
+      {
+        "month": "2025-07",
+        "observed": 21.31,
+        "student_mu": 14.95,
+        "lower_90": -0.7,
+        "upper_90": 30.61,
+        "variance": 90.619
+      },
+      {
+        "month": "2025-08",
+        "observed": 21.46,
+        "student_mu": 15.01,
+        "lower_90": -1.42,
+        "upper_90": 31.45,
+        "variance": 99.832
+      },
+      {
+        "month": "2025-09",
+        "observed": 21.54,
+        "student_mu": 15.08,
+        "lower_90": -2.3,
+        "upper_90": 32.46,
+        "variance": 111.637
+      },
+      {
+        "month": "2025-10",
+        "observed": 21.41,
+        "student_mu": 15.16,
+        "lower_90": -3.09,
+        "upper_90": 33.41,
+        "variance": 123.103
+      },
+      {
+        "month": "2025-11",
+        "observed": 21.46,
+        "student_mu": 15.19,
+        "lower_90": -3.51,
+        "upper_90": 33.89,
+        "variance": 129.243
+      },
+      {
+        "month": "2025-12",
+        "observed": 21.71,
+        "student_mu": 15.24,
+        "lower_90": -4.04,
+        "upper_90": 34.52,
+        "variance": 137.321
+      }
+    ]
+  },
+  "Addagallu": {
+    "well_id": "Addagallu",
+    "task": "monitored",
+    "n_obs": 12,
+    "series": [
+      {
+        "month": "2025-01",
+        "observed": 44.53,
+        "student_mu": 48.28,
+        "lower_90": 16.69,
+        "upper_90": 79.86,
+        "variance": 368.728
+      },
+      {
+        "month": "2025-02",
+        "observed": 54.84,
+        "student_mu": 45.76,
+        "lower_90": 14.75,
+        "upper_90": 76.76,
+        "variance": 355.236
+      },
+      {
+        "month": "2025-03",
+        "observed": 64.29,
+        "student_mu": 48.06,
+        "lower_90": 16.4,
+        "upper_90": 79.71,
+        "variance": 370.347
+      },
+      {
+        "month": "2025-04",
+        "observed": 70.91,
+        "student_mu": 52.05,
+        "lower_90": 19.39,
+        "upper_90": 84.72,
+        "variance": 394.357
+      },
+      {
+        "month": "2025-05",
+        "observed": 70.7,
+        "student_mu": 56.88,
+        "lower_90": 23.05,
+        "upper_90": 90.71,
+        "variance": 423.002
+      },
+      {
+        "month": "2025-06",
+        "observed": 70.68,
+        "student_mu": 56.61,
+        "lower_90": 22.82,
+        "upper_90": 90.4,
+        "variance": 421.94
+      },
+      {
+        "month": "2025-07",
+        "observed": 70.79,
+        "student_mu": 58.09,
+        "lower_90": 24.02,
+        "upper_90": 92.15,
+        "variance": 428.877
+      },
+      {
+        "month": "2025-08",
+        "observed": 69.72,
+        "student_mu": 57.96,
+        "lower_90": 23.94,
+        "upper_90": 91.98,
+        "variance": 427.774
+      },
+      {
+        "month": "2025-09",
+        "observed": 66.2,
+        "student_mu": 60.29,
+        "lower_90": 25.74,
+        "upper_90": 94.84,
+        "variance": 441.239
+      },
+      {
+        "month": "2025-10",
+        "observed": 55.35,
+        "student_mu": 60.92,
+        "lower_90": 26.16,
+        "upper_90": 95.69,
+        "variance": 446.636
+      },
+      {
+        "month": "2025-11",
+        "observed": 45.01,
+        "student_mu": 54.96,
+        "lower_90": 21.61,
+        "upper_90": 88.3,
+        "variance": 410.867
+      },
+      {
+        "month": "2025-12",
+        "observed": 40.14,
+        "student_mu": 45.35,
+        "lower_90": 14.45,
+        "upper_90": 76.25,
+        "variance": 352.822
+      }
+    ]
+  },
+  "Adgal": {
+    "well_id": "Adgal",
+    "task": "monitored",
+    "n_obs": 12,
+    "series": [
+      {
+        "month": "2025-01",
+        "observed": 25.03,
+        "student_mu": 23.7,
+        "lower_90": -1.36,
+        "upper_90": 48.76,
+        "variance": 232.113
+      },
+      {
+        "month": "2025-02",
+        "observed": 25.02,
+        "student_mu": 24.67,
+        "lower_90": -0.67,
+        "upper_90": 50.0,
+        "variance": 237.305
+      },
+      {
+        "month": "2025-03",
+        "observed": 25.03,
+        "student_mu": 24.35,
+        "lower_90": -1.07,
+        "upper_90": 49.78,
+        "variance": 238.908
+      },
+      {
+        "month": "2025-04",
+        "observed": 22.91,
+        "student_mu": 23.44,
+        "lower_90": -1.81,
+        "upper_90": 48.7,
+        "variance": 235.666
+      },
+      {
+        "month": "2025-05",
+        "observed": 25.09,
+        "student_mu": 21.64,
+        "lower_90": -3.17,
+        "upper_90": 46.44,
+        "variance": 227.408
+      },
+      {
+        "month": "2025-06",
+        "observed": 25.03,
+        "student_mu": 20.57,
+        "lower_90": -3.88,
+        "upper_90": 45.03,
+        "variance": 221.034
+      },
+      {
+        "month": "2025-07",
+        "observed": 25.03,
+        "student_mu": 18.87,
+        "lower_90": -4.77,
+        "upper_90": 42.52,
+        "variance": 206.571
+      },
+      {
+        "month": "2025-08",
+        "observed": 25.04,
+        "student_mu": 18.96,
+        "lower_90": -4.69,
+        "upper_90": 42.6,
+        "variance": 206.655
+      },
+      {
+        "month": "2025-09",
+        "observed": 25.06,
+        "student_mu": 19.23,
+        "lower_90": -4.52,
+        "upper_90": 42.97,
+        "variance": 208.398
+      },
+      {
+        "month": "2025-10",
+        "observed": 25.05,
+        "student_mu": 19.37,
+        "lower_90": -4.45,
+        "upper_90": 43.2,
+        "variance": 209.723
+      },
+      {
+        "month": "2025-11",
+        "observed": 25.01,
+        "student_mu": 23.87,
+        "lower_90": -1.32,
+        "upper_90": 49.06,
+        "variance": 234.433
+      },
+      {
+        "month": "2025-12",
+        "observed": 25.02,
+        "student_mu": 23.14,
+        "lower_90": -1.94,
+        "upper_90": 48.22,
+        "variance": 232.517
+      }
+    ]
+  },
+  "Adivala_1": {
+    "well_id": "Adivala_1",
+    "task": "monitored",
+    "n_obs": 12,
+    "series": [
+      {
+        "month": "2025-01",
+        "observed": 4.6,
+        "student_mu": 5.61,
+        "lower_90": -1.23,
+        "upper_90": 12.45,
+        "variance": 17.308
+      },
+      {
+        "month": "2025-02",
+        "observed": 4.48,
+        "student_mu": 5.09,
+        "lower_90": -1.78,
+        "upper_90": 11.96,
+        "variance": 17.465
+      },
+      {
+        "month": "2025-03",
+        "observed": 3.42,
+        "student_mu": 4.98,
+        "lower_90": -1.91,
+        "upper_90": 11.87,
+        "variance": 17.557
+      },
+      {
+        "month": "2025-04",
+        "observed": 4.05,
+        "student_mu": 3.64,
+        "lower_90": -3.29,
+        "upper_90": 10.56,
+        "variance": 17.719
+      },
+      {
+        "month": "2025-05",
+        "observed": 4.37,
+        "student_mu": 3.84,
+        "lower_90": -3.06,
+        "upper_90": 10.73,
+        "variance": 17.587
+      },
+      {
+        "month": "2025-06",
+        "observed": 4.22,
+        "student_mu": 4.03,
+        "lower_90": -2.8,
+        "upper_90": 10.86,
+        "variance": 17.247
+      },
+      {
+        "month": "2025-07",
+        "observed": 4.12,
+        "student_mu": 3.63,
+        "lower_90": -3.24,
+        "upper_90": 10.49,
+        "variance": 17.413
+      },
+      {
+        "month": "2025-08",
+        "observed": 2.84,
+        "student_mu": 4.07,
+        "lower_90": -2.79,
+        "upper_90": 10.93,
+        "variance": 17.384
+      },
+      {
+        "month": "2025-09",
+        "observed": 3.68,
+        "student_mu": 3.07,
+        "lower_90": -3.69,
+        "upper_90": 9.83,
+        "variance": 16.893
+      },
+      {
+        "month": "2025-10",
+        "observed": 3.33,
+        "student_mu": 3.56,
+        "lower_90": -3.26,
+        "upper_90": 10.38,
+        "variance": 17.198
+      },
+      {
+        "month": "2025-11",
+        "observed": 2.95,
+        "student_mu": 3.9,
+        "lower_90": -2.93,
+        "upper_90": 10.72,
+        "variance": 17.218
+      },
+      {
+        "month": "2025-12",
+        "observed": 3.38,
+        "student_mu": 3.81,
+        "lower_90": -3.05,
+        "upper_90": 10.67,
+        "variance": 17.399
+      }
+    ]
+  },
+  "Aanegere": {
+    "well_id": "Aanegere",
+    "task": "query",
+    "n_obs": 12,
+    "series": [
+      {
+        "month": "2025-01",
+        "observed": 9.2,
+        "student_mu": 15.76,
+        "lower_90": -4.86,
+        "upper_90": 36.39,
+        "variance": 157.194
+      },
+      {
+        "month": "2025-02",
+        "observed": 11.52,
+        "student_mu": 15.84,
+        "lower_90": -4.91,
+        "upper_90": 36.59,
+        "variance": 159.129
+      },
+      {
+        "month": "2025-03",
+        "observed": 13.05,
+        "student_mu": 16.38,
+        "lower_90": -5.25,
+        "upper_90": 38.02,
+        "variance": 173.03
+      },
+      {
+        "month": "2025-04",
+        "observed": 14.53,
+        "student_mu": 15.98,
+        "lower_90": -5.0,
+        "upper_90": 36.96,
+        "variance": 162.677
+      },
+      {
+        "month": "2025-05",
+        "observed": 14.95,
+        "student_mu": 15.54,
+        "lower_90": -4.61,
+        "upper_90": 35.68,
+        "variance": 149.979
+      },
+      {
+        "month": "2025-06",
+        "observed": 15.13,
+        "student_mu": 15.2,
+        "lower_90": -3.63,
+        "upper_90": 34.03,
+        "variance": 131.028
+      },
+      {
+        "month": "2025-07",
+        "observed": 16.68,
+        "student_mu": 15.18,
+        "lower_90": -3.39,
+        "upper_90": 33.75,
+        "variance": 127.466
+      },
+      {
+        "month": "2025-08",
+        "observed": 17.12,
+        "student_mu": 15.18,
+        "lower_90": -3.36,
+        "upper_90": 33.71,
+        "variance": 126.976
+      },
+      {
+        "month": "2025-09",
+        "observed": 18.11,
+        "student_mu": 15.19,
+        "lower_90": -3.53,
+        "upper_90": 33.91,
+        "variance": 129.582
+      },
+      {
+        "month": "2025-10",
+        "observed": 16.01,
+        "student_mu": 15.24,
+        "lower_90": -4.04,
+        "upper_90": 34.52,
+        "variance": 137.344
+      },
+      {
+        "month": "2025-11",
+        "observed": 12.66,
+        "student_mu": 15.2,
+        "lower_90": -3.54,
+        "upper_90": 33.94,
+        "variance": 129.836
+      },
+      {
+        "month": "2025-12",
+        "observed": 13.4,
+        "student_mu": 15.45,
+        "lower_90": -4.51,
+        "upper_90": 35.4,
+        "variance": 147.2
+      }
+    ]
+  },
+  "Abbenahalli": {
+    "well_id": "Abbenahalli",
+    "task": "query",
+    "n_obs": 12,
+    "series": [
+      {
+        "month": "2025-01",
+        "observed": 17.27,
+        "student_mu": 16.6,
+        "lower_90": -5.45,
+        "upper_90": 38.64,
+        "variance": 179.637
+      },
+      {
+        "month": "2025-02",
+        "observed": 18.86,
+        "student_mu": 16.8,
+        "lower_90": -5.47,
+        "upper_90": 39.06,
+        "variance": 183.229
+      },
+      {
+        "month": "2025-03",
+        "observed": 19.86,
+        "student_mu": 16.84,
+        "lower_90": -5.46,
+        "upper_90": 39.13,
+        "variance": 183.69
+      },
+      {
+        "month": "2025-04",
+        "observed": 20.73,
+        "student_mu": 17.23,
+        "lower_90": -5.43,
+        "upper_90": 39.89,
+        "variance": 189.761
+      },
+      {
+        "month": "2025-05",
+        "observed": 20.63,
+        "student_mu": 16.61,
+        "lower_90": -5.45,
+        "upper_90": 38.66,
+        "variance": 179.794
+      },
+      {
+        "month": "2025-06",
+        "observed": 19.93,
+        "student_mu": 18.06,
+        "lower_90": -5.07,
+        "upper_90": 41.18,
+        "variance": 197.63
+      },
+      {
+        "month": "2025-07",
+        "observed": 20.55,
+        "student_mu": 15.96,
+        "lower_90": -5.01,
+        "upper_90": 36.93,
+        "variance": 162.568
+      },
+      {
+        "month": "2025-08",
+        "observed": 18.76,
+        "student_mu": 15.17,
+        "lower_90": -3.35,
+        "upper_90": 33.7,
+        "variance": 126.862
+      },
+      {
+        "month": "2025-09",
+        "observed": 19.71,
+        "student_mu": 15.27,
+        "lower_90": -4.21,
+        "upper_90": 34.75,
+        "variance": 140.296
+      },
+      {
+        "month": "2025-10",
+        "observed": 18.75,
+        "student_mu": 15.33,
+        "lower_90": -4.31,
+        "upper_90": 34.97,
+        "variance": 142.601
+      },
+      {
+        "month": "2025-11",
+        "observed": 18.54,
+        "student_mu": 15.83,
+        "lower_90": -4.96,
+        "upper_90": 36.61,
+        "variance": 159.657
+      },
+      {
+        "month": "2025-12",
+        "observed": 20.43,
+        "student_mu": 16.12,
+        "lower_90": -5.17,
+        "upper_90": 37.4,
+        "variance": 167.452
+      }
+    ]
+  },
+  "Adakamaranahalli": {
+    "well_id": "Adakamaranahalli",
+    "task": "query",
+    "n_obs": 12,
+    "series": [
+      {
+        "month": "2025-01",
+        "observed": 17.04,
+        "student_mu": 18.46,
+        "lower_90": -4.92,
+        "upper_90": 41.85,
+        "variance": 202.193
+      },
+      {
+        "month": "2025-02",
+        "observed": 18.98,
+        "student_mu": 19.94,
+        "lower_90": -4.08,
+        "upper_90": 43.96,
+        "variance": 213.246
+      },
+      {
+        "month": "2025-03",
+        "observed": 22.01,
+        "student_mu": 20.27,
+        "lower_90": -4.01,
+        "upper_90": 44.55,
+        "variance": 217.859
+      },
+      {
+        "month": "2025-04",
+        "observed": 22.01,
+        "student_mu": 20.72,
+        "lower_90": -3.74,
+        "upper_90": 45.19,
+        "variance": 221.214
+      },
+      {
+        "month": "2025-05",
+        "observed": 22.02,
+        "student_mu": 18.62,
+        "lower_90": -4.83,
+        "upper_90": 42.08,
+        "variance": 203.291
+      },
+      {
+        "month": "2025-06",
+        "observed": 22.0,
+        "student_mu": 15.66,
+        "lower_90": -4.41,
+        "upper_90": 35.74,
+        "variance": 148.945
+      },
+      {
+        "month": "2025-07",
+        "observed": 22.0,
+        "student_mu": 16.67,
+        "lower_90": -5.29,
+        "upper_90": 38.63,
+        "variance": 178.215
+      },
+      {
+        "month": "2025-08",
+        "observed": 21.99,
+        "student_mu": 15.75,
+        "lower_90": -4.6,
+        "upper_90": 36.09,
+        "variance": 152.993
+      },
+      {
+        "month": "2025-09",
+        "observed": 21.97,
+        "student_mu": 15.78,
+        "lower_90": -4.79,
+        "upper_90": 36.34,
+        "variance": 156.289
+      },
+      {
+        "month": "2025-10",
+        "observed": 21.96,
+        "student_mu": 16.23,
+        "lower_90": -5.24,
+        "upper_90": 37.71,
+        "variance": 170.383
+      },
+      {
+        "month": "2025-11",
+        "observed": 21.92,
+        "student_mu": 17.2,
+        "lower_90": -5.41,
+        "upper_90": 39.81,
+        "variance": 188.948
+      },
+      {
+        "month": "2025-12",
+        "observed": 21.92,
+        "student_mu": 18.38,
+        "lower_90": -4.96,
+        "upper_90": 41.73,
+        "variance": 201.393
+      }
+    ]
+  },
+  "Adavihala": {
+    "well_id": "Adavihala",
+    "task": "query",
+    "n_obs": 12,
+    "series": [
+      {
+        "month": "2025-01",
+        "observed": 6.3,
+        "student_mu": 21.61,
+        "lower_90": -3.17,
+        "upper_90": 46.39,
+        "variance": 226.911
+      },
+      {
+        "month": "2025-02",
+        "observed": 6.41,
+        "student_mu": 23.77,
+        "lower_90": -1.64,
+        "upper_90": 49.18,
+        "variance": 238.66
+      },
+      {
+        "month": "2025-03",
+        "observed": 6.63,
+        "student_mu": 16.24,
+        "lower_90": -5.18,
+        "upper_90": 37.66,
+        "variance": 169.559
+      },
+      {
+        "month": "2025-04",
+        "observed": 6.87,
+        "student_mu": 16.47,
+        "lower_90": -5.31,
+        "upper_90": 38.25,
+        "variance": 175.347
+      },
+      {
+        "month": "2025-05",
+        "observed": 6.22,
+        "student_mu": 19.72,
+        "lower_90": -4.17,
+        "upper_90": 43.62,
+        "variance": 210.997
+      },
+      {
+        "month": "2025-06",
+        "observed": 5.72,
+        "student_mu": 19.97,
+        "lower_90": -4.24,
+        "upper_90": 44.18,
+        "variance": 216.669
+      },
+      {
+        "month": "2025-07",
+        "observed": 5.83,
+        "student_mu": 15.11,
+        "lower_90": -2.75,
+        "upper_90": 32.98,
+        "variance": 117.966
+      },
+      {
+        "month": "2025-08",
+        "observed": 5.04,
+        "student_mu": 15.2,
+        "lower_90": -3.64,
+        "upper_90": 34.03,
+        "variance": 131.103
+      },
+      {
+        "month": "2025-09",
+        "observed": 4.51,
+        "student_mu": 15.08,
+        "lower_90": -2.32,
+        "upper_90": 32.49,
+        "variance": 111.99
+      },
+      {
+        "month": "2025-10",
+        "observed": 4.65,
+        "student_mu": 15.1,
+        "lower_90": -2.35,
+        "upper_90": 32.55,
+        "variance": 112.487
+      },
+      {
+        "month": "2025-11",
+        "observed": 5.01,
+        "student_mu": 15.61,
+        "lower_90": -4.76,
+        "upper_90": 35.97,
+        "variance": 153.281
+      },
+      {
+        "month": "2025-12",
+        "observed": 5.25,
+        "student_mu": 15.98,
+        "lower_90": -5.07,
+        "upper_90": 37.02,
+        "variance": 163.639
+      }
+    ]
+  }
+}

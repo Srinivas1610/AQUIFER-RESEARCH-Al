@@ -1,0 +1,9 @@
+Configuration / Model,Task,MAE (m),RMSE (m),NSE,Delta MAE (m),Delta NSE
+Full Distilled Student GNN (Proposed),Monitored,4.19,7.889,0.779,0.0,0.0
+"No-Distillation Student (alpha=0.0, Val)",Monitored,5.623,9.39,0.748,0.582,-0.03
+No-Graph Temporal Model (GRU Only),Monitored,3.428,7.328,0.81,-0.762,0.03
+Gradient Boosted Trees (XGBoost),Monitored,3.604,7.413,0.805,-0.586,0.026
+Lag-1 Temporal Persistence,Monitored,3.126,7.595,0.795,-1.065,0.016
+Full Student (Pseudo-Query Trained),No-History Query,12.16,17.047,0.024,0.0,0.0
+Environmental XGBoost,No-History Query,10.825,17.332,-0.009,-1.335,-0.033
+Contemporaneous IDW,No-History Query,10.916,17.083,0.02,-1.244,-0.004

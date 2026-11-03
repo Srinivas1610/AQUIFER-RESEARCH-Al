@@ -1,0 +1,4 @@
+horizon_months,monitored_mae,monitored_rmse,monitored_nse,query_mae,query_rmse,query_nse,n_monitored_targets,n_query_targets
+1,4.3859,7.9661,0.7749,12.2847,17.1393,0.013,10323,3250
+3,7.3095,11.2292,0.5527,11.8429,16.9364,0.0362,10323,3250
+6,9.8968,13.5015,0.3534,11.7736,16.89,0.0415,10323,3250

@@ -1,0 +1,26 @@
+[
+  {
+    "Task": "Monitored",
+    "Model": "Student GNN (alpha=0.3)",
+    "Split": "Test Monitored (2025)",
+    "Nominal_Target": 0.9,
+    "s_hat_m": 0.0,
+    "Pre_Cal_PICP": 0.965610772062385,
+    "Pre_Cal_MPIW": 27.57065136509095,
+    "Post_Cal_PICP": 0.965610772062385,
+    "Post_Cal_MPIW": 27.57065136509095,
+    "N_Samples": 10323
+  },
+  {
+    "Task": "No-History Query",
+    "Model": "Student GNN (alpha=0.3)",
+    "Split": "Test Query (2025)",
+    "Nominal_Target": 0.9,
+    "s_hat_m": 0.0,
+    "Pre_Cal_PICP": 0.913846153846154,
+    "Pre_Cal_MPIW": 43.61784127015334,
+    "Post_Cal_PICP": 0.913846153846154,
+    "Post_Cal_MPIW": 43.61784127015334,
+    "N_Samples": 3250
+  }
+]

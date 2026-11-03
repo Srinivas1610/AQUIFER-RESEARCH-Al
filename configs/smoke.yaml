@@ -1,0 +1,23 @@
+_base_: base.yaml
+mode: smoke
+
+data:
+  study_period:
+    start: '2023-01'
+    end: '2024-06'
+  max_wells: 20
+
+training:
+  max_epochs: 3
+  batch_size: 2
+
+tuning:
+  n_configs: 2
+
+teacher:
+  oof_k_folds: 2
+
+imputation:
+  n_samples: 2
+
+seeds_final: [42]
