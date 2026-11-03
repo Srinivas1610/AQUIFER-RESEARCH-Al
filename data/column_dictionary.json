@@ -1,0 +1,162 @@
+[
+  {
+    "name": "station_id",
+    "type": "String",
+    "description": "Unique NWIC monitoring borewell identifier"
+  },
+  {
+    "name": "year_month",
+    "type": "String",
+    "description": "Calendar month in YYYY-MM format (2021-01 to 2025-12)"
+  },
+  {
+    "name": "year",
+    "type": "Integer",
+    "description": "Four-digit calendar year (2021-2025)"
+  },
+  {
+    "name": "month",
+    "type": "Integer",
+    "description": "Month of the year (1-12)"
+  },
+  {
+    "name": "latitude",
+    "type": "Float",
+    "description": "WGS84 decimal degrees latitude (11.5\u00b0N \u2013 18.5\u00b0N)"
+  },
+  {
+    "name": "longitude",
+    "type": "Float",
+    "description": "WGS84 decimal degrees longitude (74.0\u00b0E \u2013 78.5\u00b0E)"
+  },
+  {
+    "name": "utm_x",
+    "type": "Float",
+    "description": "Projected Easting coordinate in EPSG:32643 UTM Zone 43N (meters)"
+  },
+  {
+    "name": "utm_y",
+    "type": "Float",
+    "description": "Projected Northing coordinate in EPSG:32643 UTM Zone 43N (meters)"
+  },
+  {
+    "name": "district",
+    "type": "String",
+    "description": "Karnataka administrative district (31 total districts)"
+  },
+  {
+    "name": "basin",
+    "type": "String",
+    "description": "Major drainage river basin (Krishna Basin or Cauvery Basin)"
+  },
+  {
+    "name": "cell_id",
+    "type": "String",
+    "description": "25-km square spatial grid cell identifier in EPSG:32643"
+  },
+  {
+    "name": "spatial_partition",
+    "type": "String",
+    "description": "Spatial split partition: train (64%), val (16%), or test (20%)"
+  },
+  {
+    "name": "temporal_split",
+    "type": "String",
+    "description": "Chronological window: initial_fit, temporal_val, calibration, or test"
+  },
+  {
+    "name": "is_core_cohort",
+    "type": "Boolean",
+    "description": "True if well has >=70% valid monthly targets during 2021-2023"
+  },
+  {
+    "name": "gwl_observed",
+    "type": "Binary",
+    "description": "1 if observed telemetry reading exists (>=10 valid days); 0 if missing"
+  },
+  {
+    "name": "depth_m_bgl",
+    "type": "Float",
+    "description": "Primary Target: Groundwater depth below ground level in meters (monthly median)"
+  },
+  {
+    "name": "n_valid_days",
+    "type": "Integer",
+    "description": "Count of days in the month with valid 6-hourly telemetry readings (>=10 required)"
+  },
+  {
+    "name": "depth_std_m",
+    "type": "Float",
+    "description": "Intra-month standard deviation of daily groundwater depths in meters"
+  },
+  {
+    "name": "rainfall_mm",
+    "type": "Float",
+    "description": "Monthly total rainfall interpolated from up to 5 nearest rain gauges via geodesic IDW"
+  },
+  {
+    "name": "temp_c",
+    "type": "Float",
+    "description": "Monthly mean air temperature interpolated from nearest climate stations via geodesic IDW"
+  },
+  {
+    "name": "rain_cumul_3m_mm",
+    "type": "Float",
+    "description": "Trailing 3-month cumulative rainfall total in millimeters"
+  },
+  {
+    "name": "rain_cumul_6m_mm",
+    "type": "Float",
+    "description": "Trailing 6-month cumulative rainfall total in millimeters"
+  },
+  {
+    "name": "rain_cumul_12m_mm",
+    "type": "Float",
+    "description": "Trailing 12-month cumulative rainfall total in millimeters"
+  },
+  {
+    "name": "gwl_lag_1m",
+    "type": "Float",
+    "description": "Observed groundwater level from preceding month t-1 (NaN if missing)"
+  },
+  {
+    "name": "gwl_lag_2m",
+    "type": "Float",
+    "description": "Observed groundwater level from 2 months prior t-2"
+  },
+  {
+    "name": "gwl_lag_3m",
+    "type": "Float",
+    "description": "Observed groundwater level from 3 months prior t-3"
+  },
+  {
+    "name": "gwl_lag_6m",
+    "type": "Float",
+    "description": "Observed groundwater level from 6 months prior t-6"
+  },
+  {
+    "name": "gwl_lag_12m",
+    "type": "Float",
+    "description": "Seasonal lag: observed groundwater level from 12 months prior t-12"
+  },
+  {
+    "name": "gwl_delta_1m",
+    "type": "Float",
+    "description": "1-month depth rate of change: gwl_lag_1m - gwl_lag_2m"
+  },
+  {
+    "name": "gwl_delta_3m",
+    "type": "Float",
+    "description": "3-month seasonal trend: gwl_lag_1m - gwl_lag_3m"
+  },
+  {
+    "name": "month_sin",
+    "type": "Float",
+    "description": "Seasonal harmonic encoding: sin(2 * pi * month / 12)"
+  },
+  {
+    "name": "month_cos",
+    "type": "Float",
+    "description": "Seasonal harmonic encoding: cos(2 * pi * month / 12)"
+  }
+]

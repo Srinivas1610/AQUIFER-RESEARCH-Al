@@ -1,0 +1,112 @@
+[
+  {
+    "model": "Distilled Student GNN (Proposed)",
+    "model_type": "Spatiotemporal Distilled GNN",
+    "is_proposed": true,
+    "mae": 4.19,
+    "rmse": 7.889,
+    "nse": 0.779,
+    "picp": 96.6,
+    "mpiw": 27.57,
+    "n_samples": 10323
+  },
+  {
+    "model": "Residual-Distilled Student GNN",
+    "model_type": "Dual-Mode Residual GNN",
+    "is_proposed": true,
+    "mae": 3.396,
+    "rmse": 7.852,
+    "nse": 0.781,
+    "picp": 96.6,
+    "mpiw": 27.57,
+    "n_samples": 10323
+  },
+  {
+    "model": "Full Teacher GNN (128-dim, 4 heads)",
+    "model_type": "High-Capacity ST-GNN",
+    "is_proposed": false,
+    "mae": 4.361,
+    "rmse": 8.126,
+    "nse": 0.766,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 10323
+  },
+  {
+    "model": "Persistence",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 3.126,
+    "rmse": 7.595,
+    "nse": 0.795,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 10323
+  },
+  {
+    "model": "Seasonal Naive",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 7.761,
+    "rmse": 14.381,
+    "nse": 0.266,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 10323
+  },
+  {
+    "model": "Ridge",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 3.573,
+    "rmse": 7.323,
+    "nse": 0.81,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 10323
+  },
+  {
+    "model": "Random Forest",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 3.815,
+    "rmse": 7.646,
+    "nse": 0.793,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 10323
+  },
+  {
+    "model": "XGBoost",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 3.604,
+    "rmse": 7.413,
+    "nse": 0.805,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 10323
+  },
+  {
+    "model": "GRU-no-graph",
+    "model_type": "Baseline",
+    "is_proposed": false,
+    "mae": 3.428,
+    "rmse": 7.328,
+    "nse": 0.809,
+    "picp": null,
+    "mpiw": null,
+    "n_samples": 10323
+  },
+  {
+    "model": "Naik et al. (GATv2+GRU with residual skip)",
+    "model_type": "External Baseline",
+    "is_proposed": false,
+    "mae": 2.12,
+    "rmse": 5.911,
+    "nse": 0.811,
+    "picp": 94.6,
+    "mpiw": 17.16,
+    "n_samples": 7144
+  }
+]

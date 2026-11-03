@@ -1,0 +1,74 @@
+[
+  {
+    "Configuration / Model": "Full Distilled Student GNN (Proposed)",
+    "Task": "Monitored",
+    "MAE (m)": 4.19,
+    "RMSE (m)": 7.889,
+    "NSE": 0.779,
+    "Delta MAE (m)": 0.0,
+    "Delta NSE": 0.0
+  },
+  {
+    "Configuration / Model": "No-Distillation Student (alpha=0.0, Val)",
+    "Task": "Monitored",
+    "MAE (m)": 5.623,
+    "RMSE (m)": 9.39,
+    "NSE": 0.748,
+    "Delta MAE (m)": 0.582,
+    "Delta NSE": -0.03
+  },
+  {
+    "Configuration / Model": "No-Graph Temporal Model (GRU Only)",
+    "Task": "Monitored",
+    "MAE (m)": 3.428,
+    "RMSE (m)": 7.328,
+    "NSE": 0.81,
+    "Delta MAE (m)": -0.762,
+    "Delta NSE": 0.03
+  },
+  {
+    "Configuration / Model": "Gradient Boosted Trees (XGBoost)",
+    "Task": "Monitored",
+    "MAE (m)": 3.604,
+    "RMSE (m)": 7.413,
+    "NSE": 0.805,
+    "Delta MAE (m)": -0.586,
+    "Delta NSE": 0.026
+  },
+  {
+    "Configuration / Model": "Lag-1 Temporal Persistence",
+    "Task": "Monitored",
+    "MAE (m)": 3.126,
+    "RMSE (m)": 7.595,
+    "NSE": 0.795,
+    "Delta MAE (m)": -1.065,
+    "Delta NSE": 0.016
+  },
+  {
+    "Configuration / Model": "Full Student (Pseudo-Query Trained)",
+    "Task": "No-History Query",
+    "MAE (m)": 12.16,
+    "RMSE (m)": 17.047,
+    "NSE": 0.024,
+    "Delta MAE (m)": 0.0,
+    "Delta NSE": 0.0
+  },
+  {
+    "Configuration / Model": "Environmental XGBoost",
+    "Task": "No-History Query",
+    "MAE (m)": 10.825,
+    "RMSE (m)": 17.332,
+    "NSE": -0.009,
+    "Delta MAE (m)": -1.335,
+    "Delta NSE": -0.033
+  },
+  {
+    "Configuration / Model": "Contemporaneous IDW",
+    "Task": "No-History Query",
+    "MAE (m)": 10.916,
+    "RMSE (m)": 17.083,
+    "NSE": 0.02,
+    "Delta MAE (m)": -1.244,
+    "Delta NSE": -0.004
+  }
+]

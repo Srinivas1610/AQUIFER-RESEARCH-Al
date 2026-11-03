@@ -1,0 +1,53 @@
+{
+  "summary": [
+    {
+      "metric": "monitored_mae",
+      "mean": 4.362766666666667,
+      "std": 0.2110146045498589
+    },
+    {
+      "metric": "monitored_nse",
+      "mean": 0.7706666666666666,
+      "std": 0.0053153864707407
+    },
+    {
+      "metric": "query_mae",
+      "mean": 11.8304,
+      "std": 0.2218520452914505
+    },
+    {
+      "metric": "query_nse",
+      "mean": 0.0272333333333333,
+      "std": 0.0056853613195058
+    }
+  ],
+  "runs": [
+    {
+      "seed": 42,
+      "monitored_mae": 4.6035,
+      "monitored_rmse": 8.1296,
+      "monitored_nse": 0.7656,
+      "query_mae": 11.7343,
+      "query_rmse": 17.0586,
+      "query_nse": 0.0222
+    },
+    {
+      "seed": 43,
+      "monitored_mae": 4.2098,
+      "monitored_rmse": 7.9425,
+      "monitored_nse": 0.7762,
+      "query_mae": 11.6728,
+      "query_rmse": 16.9605,
+      "query_nse": 0.0334
+    },
+    {
+      "seed": 44,
+      "monitored_mae": 4.275,
+      "monitored_rmse": 8.0489,
+      "monitored_nse": 0.7702,
+      "query_mae": 12.0841,
+      "query_rmse": 17.025,
+      "query_nse": 0.0261
+    }
+  ]
+}

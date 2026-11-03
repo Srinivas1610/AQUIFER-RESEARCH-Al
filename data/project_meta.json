@@ -1,0 +1,21 @@
+{
+  "title": "Spatiotemporal Groundwater Level Prediction in Karnataka with Teacher-Student Distillation",
+  "author": "Srini K. R. & Research Team",
+  "institution": "Department of Computer Science and Engineering, Bengaluru, Karnataka, India",
+  "academic_session": "Semester V - Machine Learning Research Project (October 2026)",
+  "guide_name": "Course Faculty / Project Guide",
+  "total_wells": 1658,
+  "total_months": 60,
+  "total_cells": 278,
+  "total_records": 99480,
+  "observed_records": 59065,
+  "missing_records": 40415,
+  "raw_data_size_gb": 1.14,
+  "test_suite_status": "40/40 Passing (100% Green)",
+  "best_alpha": 0.3,
+  "key_takeaways": [
+    "Teacher-Student Distillation with pseudo-queries solves ungauged aquifer cold-start: achieves positive NSE (+0.024) where state-of-the-art baselines completely fail (Naik et al. NSE = -0.059).",
+    "DeepMVI bidirectional neural imputation recovers missing telemetry with NSE >= 0.801 even at 40% dropout, and enables physically expanding prediction intervals (27.57 m -> 43.62 m) with >=90% empirical coverage.",
+    "Rigorous 25-km block spatial splitting strictly prevents spatial autocorrelation leakage, creating an honest, deployment-ready decision support tool for CGWB and Karnataka Water Authorities."
+  ]
+}
