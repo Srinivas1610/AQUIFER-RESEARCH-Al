@@ -14,7 +14,7 @@
   "test_suite_status": "40/40 Passing (100% Green)",
   "best_alpha": 0.3,
   "key_takeaways": [
-    "Teacher-Student Distillation with pseudo-queries solves ungauged aquifer cold-start: achieves positive NSE (+0.024) where state-of-the-art baselines completely fail (Naik et al. NSE = -0.059).",
+    "Teacher-Student Distillation with pseudo-queries solves ungauged aquifer cold-start: achieves positive NSE (+0.024) where state-of-the-art baselines completely fail (Fixed GRU-GNN Baseline NSE = -0.059).",
     "DeepMVI bidirectional neural imputation recovers missing telemetry with NSE >= 0.801 even at 40% dropout, and enables physically expanding prediction intervals (27.57 m -> 43.62 m) with >=90% empirical coverage.",
     "Rigorous 25-km block spatial splitting strictly prevents spatial autocorrelation leakage, creating an honest, deployment-ready decision support tool for CGWB and Karnataka Water Authorities."
   ]

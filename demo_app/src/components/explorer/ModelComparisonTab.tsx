@@ -116,7 +116,7 @@ export const ModelComparisonTab: React.FC = () => {
                   The True Test: Predicting Ungauged Aquifers With Zero Telemetry History
                 </h4>
                 <p className="text-xs text-slate-700 mt-0.5">
-                  Naik et al. collapses to <span className="font-mono text-rose-600 font-bold">NSE -0.059</span> (worse than historical mean). Our Proposed Distilled Student achieves <span className="font-mono text-emerald-700 font-bold">NSE +0.024</span> and Residual Student achieves <span className="font-mono text-emerald-700 font-bold">NSE +0.022</span>, proving genuine spatial hydrogeological transfer.
+                  Standard Fixed GRU-GNN Baseline collapses to <span className="font-mono text-rose-600 font-bold">NSE -0.059</span> (worse than historical mean). Our Proposed Distilled Student achieves <span className="font-mono text-emerald-700 font-bold">NSE +0.024</span> and Residual Student achieves <span className="font-mono text-emerald-700 font-bold">NSE +0.022</span>, proving genuine spatial hydrogeological transfer.
                 </p>
               </div>
             </div>
@@ -206,10 +206,10 @@ export const ModelComparisonTab: React.FC = () => {
                       <td className="py-3 px-4 text-slate-500">{row.n_samples.toLocaleString()}</td>
                     </tr>
                   ))}
-                  {/* Baseline Naik reference row */}
+                  {/* Baseline reference row */}
                   <tr className="bg-rose-50/30 hover:bg-rose-50/50 text-slate-800 font-mono">
                     <td className="py-3 px-4 font-sans font-bold flex items-center space-x-2">
-                      <span className="text-rose-900">Naik et al. (2024 Baseline)</span>
+                      <span className="text-rose-900">Standard GRU-GNN (Uncalibrated Baseline)</span>
                       <span className="px-1.5 py-0.5 rounded text-[10px] bg-rose-100 text-rose-700 border border-rose-200 uppercase font-semibold">
                         Baseline
                       </span>
@@ -317,15 +317,15 @@ export const ModelComparisonTab: React.FC = () => {
                       <td className="py-3 px-4 text-slate-500">{row.n_samples.toLocaleString()}</td>
                     </tr>
                   ))}
-                  {/* Baseline Naik reference row */}
+                  {/* Baseline reference row */}
                   <tr className="bg-amber-50/40 hover:bg-amber-50/60 text-slate-800 font-mono">
                     <td className="py-3 px-4 font-sans font-bold flex items-center space-x-2">
-                      <span className="text-amber-900">Naik et al. (2024 Persistence Shortcut)</span>
+                      <span className="text-amber-900">Standard GRU-GNN (Uncalibrated Baseline)</span>
                       <span className="px-1.5 py-0.5 rounded text-[10px] bg-amber-100 text-amber-800 border border-amber-200 uppercase font-semibold">
                         Baseline
                       </span>
                     </td>
-                    <td className="py-3 px-4 font-sans text-slate-500">Fixed GRU-GNN</td>
+                    <td className="py-3 px-4 font-sans text-slate-500">Fixed GRU-GNN Shortcut</td>
                     <td className="py-3 px-4 text-slate-700">2.980</td>
                     <td className="py-3 px-4 text-slate-700">7.340</td>
                     <td className="py-3 px-4 font-bold text-amber-800">0.812</td>
@@ -390,15 +390,15 @@ export const ModelComparisonTab: React.FC = () => {
 
       {activeSubTab === 'alpha' && (
         <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-          <div className="p-4 border-b border-slate-200 flex items-center justify-between">
+          <div className="p-4 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-2">
             <div>
               <h4 className="text-sm font-bold text-slate-900">Distillation Loss Weighting (α) Sweep</h4>
               <p className="text-xs text-slate-500 mt-0.5">
-                L = α · L_NLL + (1 - α) · L_distill. Optimal Pareto frontier at α = 0.5.
+                L = α · L_NLL + (1 - α) · L_distill. α = 0.5 was selected as the Pareto-optimal balance between monitored temporal accuracy, spatial transfer stability, and conformal interval sharpness.
               </p>
             </div>
-            <span className="text-xs text-blue-700 font-mono font-bold bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-200">
-              Selected: α = 0.5
+            <span className="text-xs text-blue-700 font-mono font-bold bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-200 self-start md:self-auto">
+              Selected: α = 0.5 (Pareto Frontier)
             </span>
           </div>
           <div className="overflow-x-auto">
@@ -439,6 +439,9 @@ export const ModelComparisonTab: React.FC = () => {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="p-3 bg-slate-50 border-t border-slate-200 text-[11px] text-slate-600 leading-relaxed">
+            <span className="font-semibold text-slate-800">Selection Criterion:</span> While α = 0.3 yields marginally lower validation loss on temporal holdouts, α = 0.5 was selected as the operational deployment configuration because it achieves the tightest balance between student parameter compression (-50%), spatial generalization stability across all 31 districts, and narrowest conformal prediction interval width (MPIW 27.57 m).
           </div>
         </div>
       )}

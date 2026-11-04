@@ -68,7 +68,7 @@ export const OverviewDashboardTab: React.FC<OverviewDashboardTabProps> = ({
               className="py-2 px-3.5 rounded-lg bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs border border-slate-200 flex items-center justify-center space-x-1.5 transition shadow-xs"
             >
               <Award className="w-3.5 h-3.5 text-blue-600" />
-              <span>Benchmark vs Naik (2024)</span>
+              <span>Benchmark vs Baseline</span>
             </button>
             <button
               onClick={() => onNavigate('papers')}
@@ -101,7 +101,7 @@ export const OverviewDashboardTab: React.FC<OverviewDashboardTabProps> = ({
         <div className="bg-white p-4 rounded-xl border border-blue-200 bg-blue-50/20 shadow-sm">
           <div className="text-[11px] font-semibold text-blue-700 uppercase tracking-wide">Ungauged NSE</div>
           <div className="text-2xl font-bold text-blue-700 mt-1">+0.024</div>
-          <div className="text-[11px] text-slate-500 mt-0.5">vs Naik -0.059</div>
+          <div className="text-[11px] text-slate-500 mt-0.5">(vs Fixed GRU-GNN baseline -0.059)</div>
         </div>
 
         {/* Monitored Accuracy */}
@@ -136,7 +136,7 @@ export const OverviewDashboardTab: React.FC<OverviewDashboardTabProps> = ({
               <div className="flex items-center space-x-2">
                 <Award className="w-4 h-4 text-blue-600" />
                 <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide">
-                  Benchmark Audit vs Naik et al. (2024 Baseline)
+                  Benchmark Audit vs Standard Fixed GRU-GNN Baseline
                 </h3>
               </div>
               <span className="text-xs font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">
@@ -153,12 +153,12 @@ export const OverviewDashboardTab: React.FC<OverviewDashboardTabProps> = ({
                 </div>
                 <div className="flex items-center space-x-3 text-right">
                   <div>
-                    <span className="text-[10px] text-slate-400 block font-mono">Naik et al. (2024)</span>
+                    <span className="text-[10px] text-slate-400 block font-mono">Fixed GRU-GNN Baseline</span>
                     <span className="font-mono text-rose-600 font-semibold">NSE -0.059 (Fails)</span>
                   </div>
                   <div className="text-slate-400 font-semibold">vs</div>
                   <div>
-                    <span className="text-[10px] text-blue-600 block font-mono font-semibold">Our Student</span>
+                    <span className="text-[10px] text-blue-600 block font-mono font-semibold">Proposed Distilled GNN</span>
                     <span className="font-mono text-emerald-700 font-bold">NSE +0.024 (Superior)</span>
                   </div>
                 </div>
@@ -172,12 +172,12 @@ export const OverviewDashboardTab: React.FC<OverviewDashboardTabProps> = ({
                 </div>
                 <div className="flex items-center space-x-3 text-right">
                   <div>
-                    <span className="text-[10px] text-slate-400 block font-mono">Naik et al. (2024)</span>
+                    <span className="text-[10px] text-slate-400 block font-mono">Fixed GRU-GNN Baseline</span>
                     <span className="font-mono text-slate-500">None (0%)</span>
                   </div>
                   <div className="text-slate-400 font-semibold">vs</div>
                   <div>
-                    <span className="text-[10px] text-blue-600 block font-mono font-semibold">Our Student</span>
+                    <span className="text-[10px] text-blue-600 block font-mono font-semibold">Proposed Distilled GNN</span>
                     <span className="font-mono text-slate-900 font-bold">-50% Parameters (71k)</span>
                   </div>
                 </div>
@@ -191,12 +191,12 @@ export const OverviewDashboardTab: React.FC<OverviewDashboardTabProps> = ({
                 </div>
                 <div className="flex items-center space-x-3 text-right">
                   <div>
-                    <span className="text-[10px] text-slate-400 block font-mono">Naik et al. (2024)</span>
+                    <span className="text-[10px] text-slate-400 block font-mono">Fixed GRU-GNN Baseline</span>
                     <span className="font-mono text-slate-500">17.16 m (Static Flat)</span>
                   </div>
                   <div className="text-slate-400 font-semibold">vs</div>
                   <div>
-                    <span className="text-[10px] text-blue-600 block font-mono font-semibold">Our Student</span>
+                    <span className="text-[10px] text-blue-600 block font-mono font-semibold">Proposed Distilled GNN</span>
                     <span className="font-mono text-blue-700 font-bold">Adaptive 27.57m → 43.62m</span>
                   </div>
                 </div>
@@ -210,12 +210,12 @@ export const OverviewDashboardTab: React.FC<OverviewDashboardTabProps> = ({
                 </div>
                 <div className="flex items-center space-x-3 text-right">
                   <div>
-                    <span className="text-[10px] text-slate-400 block font-mono">Naik et al. (2024)</span>
+                    <span className="text-[10px] text-slate-400 block font-mono">Fixed GRU-GNN Baseline</span>
                     <span className="font-mono text-slate-500">Assumes Clean Sequence</span>
                   </div>
                   <div className="text-slate-400 font-semibold">vs</div>
                   <div>
-                    <span className="text-[10px] text-blue-600 block font-mono font-semibold">Our Student</span>
+                    <span className="text-[10px] text-blue-600 block font-mono font-semibold">Proposed Distilled GNN</span>
                     <span className="font-mono text-emerald-700 font-bold">NSE ≥ 0.801 @ 40% Drop</span>
                   </div>
                 </div>

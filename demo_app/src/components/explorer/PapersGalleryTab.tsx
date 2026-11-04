@@ -101,7 +101,7 @@ export const PapersGalleryTab: React.FC = () => {
           <span>Compiled Research Manuscripts (PDF)</span>
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Main Paper */}
           <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-blue-300 transition">
             <div>
@@ -150,16 +150,16 @@ export const PapersGalleryTab: React.FC = () => {
                 <span className="text-xs text-slate-500 font-mono">5 Pages • 1.4 MB</span>
               </div>
               <h4 className="text-base font-bold text-slate-900 mb-2 leading-snug">
-                Comparative Benchmark Report: Proposed Distilled GNN vs Naik et al. (2024) Baseline
+                Comparative Benchmark Report: Proposed Distilled GNN vs Standard Fixed GRU-GNN Baseline
               </h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                Exhaustive head-to-head empirical audit: unmasks Naik's persistence shortcut (mu = y_t + delta_mu), documents Naik's query well collapse (NSE -0.059 vs ours +0.024), and details 50% parameter compression.
+                Exhaustive head-to-head empirical audit: unmasks the fixed GRU-GNN baseline's persistence shortcut (mu = y_t + delta_mu), documents the baseline's query well collapse (NSE -0.059 vs ours +0.024), and details 50% parameter compression.
               </p>
             </div>
 
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
               <a
-                href="./docs/2_COMPARATIVE_BENCHMARK_REPORT_vs_Naik.pdf"
+                href="./docs/2_COMPARATIVE_BENCHMARK_REPORT_vs_Baseline.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="flex-1 py-2 px-3 rounded-lg bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs flex items-center justify-center space-x-1.5 transition shadow-sm"
@@ -168,8 +168,46 @@ export const PapersGalleryTab: React.FC = () => {
                 <span>Open Benchmark Report</span>
               </a>
               <a
-                href="./docs/2_COMPARATIVE_BENCHMARK_REPORT_vs_Naik.pdf"
-                download="2_COMPARATIVE_BENCHMARK_REPORT_vs_Naik.pdf"
+                href="./docs/2_COMPARATIVE_BENCHMARK_REPORT_vs_Baseline.pdf"
+                download="2_COMPARATIVE_BENCHMARK_REPORT_vs_Baseline.pdf"
+                className="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 transition"
+                title="Download PDF"
+              >
+                <Download className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Springer Nature Journal Article */}
+          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-emerald-300 transition">
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-700 border border-emerald-200 uppercase font-bold">
+                  Nature Template Submission
+                </span>
+                <span className="text-xs text-slate-500 font-mono">Format Article</span>
+              </div>
+              <h4 className="text-base font-bold text-slate-900 mb-2 leading-snug">
+                Springer Nature Journal Publication Draft
+              </h4>
+              <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                Comprehensive academic submission manuscript formatted with the official Springer Nature LaTeX template for environmental water informatics.
+              </p>
+            </div>
+
+            <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+              <a
+                href="./docs/Springer_Nature_LaTeX_Template__3_-3.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs flex items-center justify-center space-x-1.5 transition shadow-sm"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>Open Nature Draft</span>
+              </a>
+              <a
+                href="./docs/Springer_Nature_LaTeX_Template__3_-3.pdf"
+                download="Springer_Nature_Manuscript.pdf"
                 className="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 transition"
                 title="Download PDF"
               >

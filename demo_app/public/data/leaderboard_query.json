@@ -75,16 +75,5 @@
     "picp": null,
     "mpiw": null,
     "n_samples": 3250
-  },
-  {
-    "model": "Naik et al. (GATv2+GRU Cold-Start)",
-    "model_type": "External Baseline",
-    "is_proposed": false,
-    "mae": 6.939,
-    "rmse": 14.523,
-    "nse": -0.059,
-    "picp": 83.8,
-    "mpiw": 17.9,
-    "n_samples": 2397
   }
 ]

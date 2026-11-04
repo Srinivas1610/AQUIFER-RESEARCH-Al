@@ -1,37 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useData } from './context/DataContext';
-import { PresentationView } from './components/presentation/PresentationView';
 import { ExplorerView } from './components/explorer/ExplorerView';
 import { Loader2, AlertTriangle, RefreshCw } from 'lucide-react';
 
 export const App: React.FC = () => {
   const { isLoading, error } = useData();
-  const [mode, setMode] = useState<'platform' | 'presentation'>('platform');
-
-  // Global mode toggle shortcut
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept if an input is active
-      if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) {
-        return;
-      }
-
-      if (e.key === 'e' || e.key === 'E') {
-        if (mode === 'presentation' && !e.ctrlKey && !e.metaKey) {
-          e.preventDefault();
-          setMode('platform');
-        }
-      } else if (e.key === 'p' || e.key === 'P') {
-        if (mode === 'platform' && !e.ctrlKey && !e.metaKey) {
-          e.preventDefault();
-          setMode('presentation');
-        }
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [mode]);
 
   if (isLoading) {
     return (
@@ -78,11 +51,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="w-screen h-screen bg-slate-50 text-slate-800 font-sans overflow-hidden">
-      {mode === 'presentation' ? (
-        <PresentationView onSwitchToExplorer={() => setMode('platform')} />
-      ) : (
-        <ExplorerView onSwitchToPresentation={() => setMode('presentation')} />
-      )}
+      <ExplorerView />
     </div>
   );
 };

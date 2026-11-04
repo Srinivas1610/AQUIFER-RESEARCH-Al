@@ -97,7 +97,7 @@ export const StressTestSimulatorTab: React.FC = () => {
                 </span>
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">
-                Toggle below to compare our GATv2 model against Naik et al. when groundwater sensor history is severed.
+                Toggle below to compare our GATv2 model against the standard baseline when groundwater sensor history is severed.
               </p>
             </div>
 
@@ -123,7 +123,7 @@ export const StressTestSimulatorTab: React.FC = () => {
 
           {/* Head-to-Head Visual Contrast */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Naik et al. Panel */}
+            {/* Baseline Reference Panel */}
             <div
               className={`p-5 rounded-2xl border transition-all duration-200 flex flex-col justify-between shadow-sm ${
                 isSensorActive
@@ -135,7 +135,7 @@ export const StressTestSimulatorTab: React.FC = () => {
                 <div className="flex items-center justify-between pb-3 border-b border-slate-200">
                   <div>
                     <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">Baseline Model</span>
-                    <h4 className="text-sm font-bold text-slate-900">Naik et al. (2024 GRU-GNN)</h4>
+                    <h4 className="text-sm font-bold text-slate-900">Standard GRU-GNN (Uncalibrated Baseline)</h4>
                   </div>
                   <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-semibold ${
                     isSensorActive ? 'bg-slate-100 text-slate-700' : 'bg-rose-100 text-rose-800 border border-rose-200'
@@ -167,11 +167,11 @@ export const StressTestSimulatorTab: React.FC = () => {
                   <div className="p-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-600 leading-relaxed">
                     {isSensorActive ? (
                       <p>
-                        Naik et al. operates by copying the previous month's measurement and adding a small residual: <code className="text-slate-900 font-mono font-semibold">μ = y_t + Δμ</code>. While this scores well on monitored wells, it fails to learn actual spatial hydrodynamics.
+                        The fixed GRU-GNN baseline operates by copying the previous month's measurement and adding a small residual: <code className="text-slate-900 font-mono font-semibold">μ = y_t + Δμ</code>. While this scores well on monitored wells, it fails to learn actual spatial hydrodynamics.
                       </p>
                     ) : (
                       <p className="text-rose-800">
-                        <strong>Failure Mode:</strong> When sensor history is absent, <code className="font-mono font-bold">y_t</code> does not exist. Lacking pseudo-query masking, Naik's model collapses to an NSE of <code className="font-mono font-bold text-rose-700">-0.059</code>.
+                        <strong>Failure Mode:</strong> When sensor history is absent, <code className="font-mono font-bold">y_t</code> does not exist. Lacking pseudo-query masking, the fixed baseline collapses to an NSE of <code className="font-mono font-bold text-rose-700">-0.059</code>.
                       </p>
                     )}
                   </div>

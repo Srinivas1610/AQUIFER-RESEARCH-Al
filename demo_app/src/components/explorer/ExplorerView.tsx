@@ -8,13 +8,10 @@ import {
   ShieldCheck,
   Database,
   BookOpen,
-  HelpCircle,
-  Presentation,
   Compass,
   Menu,
   Maximize,
-  Minimize,
-  ChevronRight
+  Minimize
 } from 'lucide-react';
 import { OverviewDashboardTab } from './OverviewDashboardTab';
 import { MapViewTab } from './MapViewTab';
@@ -24,11 +21,6 @@ import { ModelComparisonTab } from './ModelComparisonTab';
 import { CalibrationTab } from './CalibrationTab';
 import { DataExplorerTab } from './DataExplorerTab';
 import { PapersGalleryTab } from './PapersGalleryTab';
-import { QuestionsMaamMightAskTab } from './QuestionsMaamMightAskTab';
-
-interface ExplorerViewProps {
-  onSwitchToPresentation?: () => void;
-}
 
 type TabType =
   | 'overview'
@@ -38,10 +30,9 @@ type TabType =
   | 'comparison'
   | 'calibration'
   | 'data'
-  | 'papers'
-  | 'questions';
+  | 'papers';
 
-export const ExplorerView: React.FC<ExplorerViewProps> = ({ onSwitchToPresentation }) => {
+export const ExplorerView: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
   const [selectedWellId, setSelectedWellId] = useState<string>('Abbinahole');
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
@@ -69,11 +60,10 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onSwitchToPresentati
     { id: 'map', label: 'Spatial Well Map', icon: MapPin, badge: '1,658 Wells' },
     { id: 'well', label: 'Hydrograph Engine', icon: Activity, badge: 'Time-Series' },
     { id: 'simulator', label: 'Stress & Telemetry Test', icon: Zap, badge: 'Simulator' },
-    { id: 'comparison', label: 'Benchmark & Ablations', icon: Trophy, badge: 'vs Naik' },
+    { id: 'comparison', label: 'Benchmark & Ablations', icon: Trophy, badge: 'VS BASELINE' },
     { id: 'calibration', label: 'Uncertainty Calibration', icon: ShieldCheck, badge: '96.6% PICP' },
     { id: 'data', label: 'Dataset & Dictionary', icon: Database, badge: '32 Features' },
     { id: 'papers', label: 'Papers & Figure Gallery', icon: BookOpen, badge: '2 Manuscripts' },
-    { id: 'questions', label: "Questions for Ma'am", icon: HelpCircle, badge: '20 Defenses' },
   ];
 
   return (
@@ -151,22 +141,6 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onSwitchToPresentati
                 </button>
               );
             })}
-
-            {/* Optional Slide Deck Link */}
-            {onSwitchToPresentation && isSidebarOpen && (
-              <div className="pt-2 mt-2 border-t border-slate-200">
-                <button
-                  onClick={onSwitchToPresentation}
-                  className="w-full flex items-center justify-between rounded-lg py-1.5 px-2.5 text-xs text-slate-500 hover:text-slate-800 hover:bg-slate-200/50 transition font-sans"
-                >
-                  <div className="flex items-center space-x-2">
-                    <Presentation className="w-3.5 h-3.5 text-slate-400" />
-                    <span>Presentation Slides</span>
-                  </div>
-                  <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-                </button>
-              </div>
-            )}
           </nav>
         </div>
 
@@ -175,7 +149,7 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onSwitchToPresentati
           <div className="p-3 border-t border-slate-200 bg-white text-[11px] space-y-1 font-mono">
             <div className="flex items-center justify-between text-slate-500">
               <span>Checkpoint:</span>
-              <span className="text-slate-800 font-medium">student_best.pt</span>
+              <span className="text-slate-800 font-medium">distilled_model.pt</span>
             </div>
             <div className="flex items-center justify-between text-slate-500">
               <span>Test Suite:</span>
@@ -245,7 +219,6 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onSwitchToPresentati
           {activeTab === 'calibration' && <CalibrationTab />}
           {activeTab === 'data' && <DataExplorerTab />}
           {activeTab === 'papers' && <PapersGalleryTab />}
-          {activeTab === 'questions' && <QuestionsMaamMightAskTab />}
         </main>
       </div>
     </div>

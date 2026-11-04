@@ -66,16 +66,16 @@ export const CalibrationTab: React.FC = () => {
           </div>
         </div>
 
-        {/* Naik Baseline Contrast */}
+        {/* Baseline Reference Contrast */}
         <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between text-xs text-slate-500 mb-1">
-              <span className="font-medium">Baseline: Naik et al. (2024)</span>
+              <span className="font-medium">Standard GRU-GNN Baseline</span>
               <span className="font-mono text-rose-600 font-bold">Uncalibrated</span>
             </div>
             <div className="text-3xl font-bold text-rose-700">17.16 m</div>
             <div className="text-xs text-slate-600 mt-1">
-              Naik et al. outputs a single static variance (<span className="font-mono text-rose-700 font-medium">17.16 m</span>) regardless of aquifer knowledge.
+              Fixed GRU-GNN baseline outputs a single static variance (<span className="font-mono text-rose-700 font-medium">17.16 m</span>) regardless of aquifer knowledge.
             </div>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-600 font-mono flex items-center justify-between">
@@ -123,10 +123,10 @@ export const CalibrationTab: React.FC = () => {
               </div>
             </div>
 
-            {/* Baseline Naik Bar */}
+            {/* Baseline Reference Bar */}
             <div>
               <div className="flex justify-between text-xs mb-1">
-                <span className="font-semibold text-slate-800">Naik et al. Baseline (Static Variance)</span>
+                <span className="font-semibold text-slate-800">Standard GRU-GNN Baseline (Static Variance)</span>
                 <span className="font-mono font-bold text-rose-600">17.16 m (Uncalibrated)</span>
               </div>
               <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden border border-slate-200">

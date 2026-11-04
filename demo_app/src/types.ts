@@ -18,8 +18,8 @@ export interface ProjectMeta {
 
 export interface ScorecardItem {
   dimension: string;
-  naik_metric: string;
-  naik_detail: string;
+  baseline_metric?: string;
+  baseline_detail?: string;
   our_metric: string;
   our_detail: string;
   verdict: 'Better' | 'Comparable' | 'Worse';
