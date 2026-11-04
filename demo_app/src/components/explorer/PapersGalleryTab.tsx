@@ -153,7 +153,7 @@ export const PapersGalleryTab: React.FC = () => {
                 Comparative Benchmark Report: Proposed Distilled GNN vs Standard Fixed GRU-GNN Baseline
               </h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                Exhaustive head-to-head empirical audit: unmasks the fixed GRU-GNN baseline's persistence shortcut (mu = y_t + delta_mu), documents the baseline's query well collapse (NSE -0.059 vs ours +0.024), and details 50% parameter compression.
+                Exhaustive head-to-head empirical audit: unmasks the conventional fixed GRU-GNN persistence shortcut (mu = y_t + delta_mu), documents the baseline's query well collapse (NSE -0.059 vs ours +0.024), and details 50% parameter compression.
               </p>
             </div>
 

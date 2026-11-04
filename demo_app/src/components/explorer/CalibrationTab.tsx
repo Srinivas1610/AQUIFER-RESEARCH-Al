@@ -177,6 +177,19 @@ export const CalibrationTab: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Hydrological Significance Callout for Ungauged Wells */}
+      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start space-x-3 text-xs text-slate-700 leading-relaxed">
+        <ShieldCheck className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+        <div>
+          <span className="font-bold text-slate-900 block mb-1">
+            Physical Significance of Conformal Calibration for Ungauged Locations:
+          </span>
+          <p>
+            In fractured hard-rock crystalline aquifers across interior Karnataka, predicting exact water table depths at completely unmonitored locations (zero historical telemetry) is inherently ill-posed. Achieving a positive out-of-sample NSE (+0.024 vs -0.059 baseline collapse) alongside a 1.83 m MAE reduction (11.014 m Dual-Mode Student vs 12.840 m baseline) and a calibrated 91.4% conformal uncertainty band (43.62 m adaptive MPIW) prevents false overconfidence when siting new rural borewells.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

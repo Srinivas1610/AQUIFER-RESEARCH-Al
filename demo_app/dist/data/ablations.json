@@ -15,7 +15,7 @@
     "RMSE (m)": 9.39,
     "NSE": 0.748,
     "Delta MAE (m)": 1.433,
-    "Delta NSE": -0.03
+    "Delta NSE": -0.031
   },
   {
     "Configuration / Model": "No-Graph Temporal Model (GRU Only)",

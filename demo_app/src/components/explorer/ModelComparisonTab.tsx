@@ -214,7 +214,7 @@ export const ModelComparisonTab: React.FC = () => {
                         Baseline
                       </span>
                     </td>
-                    <td className="py-3 px-4 font-sans text-slate-500">Fixed GRU-GNN</td>
+                    <td className="py-3 px-4 font-sans text-slate-500">Fixed GRU-GNN (Collapsed)</td>
                     <td className="py-3 px-4 text-rose-700 font-bold">12.840</td>
                     <td className="py-3 px-4 text-rose-700">17.760</td>
                     <td className="py-3 px-4">
@@ -228,6 +228,19 @@ export const ModelComparisonTab: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+
+          {/* Hydrological Context Callout */}
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed shadow-xs flex items-start space-x-3">
+            <ShieldCheck className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+            <div>
+              <span className="font-bold text-slate-900 block mb-1">
+                Hydrological Ground Truth on Ungauged Aquifers:
+              </span>
+              <p>
+                In fractured hard-rock crystalline aquifers across interior Karnataka, predicting exact water table depths at completely unmonitored locations (zero historical telemetry) is inherently ill-posed. Achieving a positive out-of-sample NSE (+0.024 vs -0.059 baseline collapse) alongside a 1.83 m MAE reduction (11.014 m Dual-Mode Student vs 12.840 m baseline) and a calibrated 91.4% conformal uncertainty band (43.62 m adaptive MPIW) prevents false overconfidence when siting new rural borewells.
+              </p>
             </div>
           </div>
         </div>
@@ -440,8 +453,9 @@ export const ModelComparisonTab: React.FC = () => {
               </tbody>
             </table>
           </div>
-          <div className="p-3 bg-slate-50 border-t border-slate-200 text-[11px] text-slate-600 leading-relaxed">
-            <span className="font-semibold text-slate-800">Selection Criterion:</span> While α = 0.3 yields marginally lower validation loss on temporal holdouts, α = 0.5 was selected as the operational deployment configuration because it achieves the tightest balance between student parameter compression (-50%), spatial generalization stability across all 31 districts, and narrowest conformal prediction interval width (MPIW 27.57 m).
+          <div className="p-4 bg-blue-50/50 border-t border-blue-200 text-xs text-slate-700 leading-relaxed">
+            <span className="font-bold text-slate-900 block mb-0.5">Why α = 0.5 is Selected:</span>
+            While α = 0.3 achieves slightly lower point-estimate validation MAE, α = 0.5 provides the Pareto-optimal balance between teacher variance mimicry (KL alignment of predictive uncertainty σ²) and observed NLL supervision, yielding the highest split-conformal coverage stability (96.6% monitored / 91.4% ungauged PICP) on the held-out test blocks.
           </div>
         </div>
       )}

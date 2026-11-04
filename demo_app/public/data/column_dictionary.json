@@ -47,7 +47,7 @@
   {
     "name": "basin",
     "type": "String",
-    "description": "Major drainage basin (Krishna, Cauvery, Godavari, and West-Flowing Coastal River Basins)"
+    "description": "Major drainage basin (Krishna, Cauvery, Godavari, Pennar, and West-Flowing Coastal River Basins)"
   },
   {
     "name": "cell_id",
