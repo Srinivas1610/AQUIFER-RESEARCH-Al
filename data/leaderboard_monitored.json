@@ -97,16 +97,5 @@
     "picp": null,
     "mpiw": null,
     "n_samples": 10323
-  },
-  {
-    "model": "Naik et al. (GATv2+GRU with residual skip)",
-    "model_type": "External Baseline",
-    "is_proposed": false,
-    "mae": 2.12,
-    "rmse": 5.911,
-    "nse": 0.811,
-    "picp": 94.6,
-    "mpiw": 17.16,
-    "n_samples": 7144
   }
 ]
