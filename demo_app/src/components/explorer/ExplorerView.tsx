@@ -84,7 +84,7 @@ export const ExplorerView: React.FC = () => {
                 </div>
                 <div className="truncate">
                   <span className="font-bold text-slate-900 text-xs tracking-tight block leading-tight">
-                    AQUIFER RESEARCH AI
+                    AQUIFER RESEARCH
                   </span>
                   <span className="text-[10px] text-slate-500 font-mono tracking-wider uppercase">
                     Karnataka GWL Portal
