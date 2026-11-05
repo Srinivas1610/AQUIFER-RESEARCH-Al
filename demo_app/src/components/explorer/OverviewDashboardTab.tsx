@@ -6,6 +6,7 @@ import {
   BarChart3,
   CheckCircle2,
   Cpu,
+  Crosshair,
   Database,
   ExternalLink,
   Layers,
@@ -56,6 +57,13 @@ export const OverviewDashboardTab: React.FC<OverviewDashboardTabProps> = ({
 
           {/* Action Buttons */}
           <div className="flex flex-wrap lg:flex-col gap-2 flex-shrink-0">
+            <button
+              onClick={() => onNavigate('custom')}
+              className="py-2 px-3.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs flex items-center justify-center space-x-1.5 shadow-sm transition"
+            >
+              <Crosshair className="w-3.5 h-3.5" />
+              <span>Borewell Siting (Any Coords)</span>
+            </button>
             <button
               onClick={() => onNavigate('map')}
               className="py-2 px-3.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs flex items-center justify-center space-x-1.5 shadow-sm transition"

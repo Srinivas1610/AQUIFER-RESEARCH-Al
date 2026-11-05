@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   LayoutDashboard,
   MapPin,
+  Crosshair,
   Activity,
   Zap,
   Trophy,
@@ -15,6 +16,7 @@ import {
 } from 'lucide-react';
 import { OverviewDashboardTab } from './OverviewDashboardTab';
 import { MapViewTab } from './MapViewTab';
+import { CustomWellPredictorTab } from './CustomWellPredictorTab';
 import { WellDetailTab } from './WellDetailTab';
 import { StressTestSimulatorTab } from './StressTestSimulatorTab';
 import { ModelComparisonTab } from './ModelComparisonTab';
@@ -25,6 +27,7 @@ import { PapersGalleryTab } from './PapersGalleryTab';
 type TabType =
   | 'overview'
   | 'map'
+  | 'custom'
   | 'well'
   | 'simulator'
   | 'comparison'
@@ -58,6 +61,7 @@ export const ExplorerView: React.FC = () => {
   const navItems = [
     { id: 'overview', label: 'Executive Overview', icon: LayoutDashboard, badge: 'Summary' },
     { id: 'map', label: 'Spatial Well Map', icon: MapPin, badge: '1,658 Wells' },
+    { id: 'custom', label: 'Borewell Siting Tool', icon: Crosshair, badge: 'Any Coords' },
     { id: 'well', label: 'Hydrograph Engine', icon: Activity, badge: 'Time-Series' },
     { id: 'simulator', label: 'Stress & Telemetry Test', icon: Zap, badge: 'Simulator' },
     { id: 'comparison', label: 'Benchmark & Ablations', icon: Trophy, badge: 'VS BASELINE' },
@@ -213,6 +217,7 @@ export const ExplorerView: React.FC = () => {
           {activeTab === 'map' && (
             <MapViewTab onSelectWellForHydrograph={handleSelectWellForHydrograph} />
           )}
+          {activeTab === 'custom' && <CustomWellPredictorTab />}
           {activeTab === 'well' && <WellDetailTab initialWellId={selectedWellId} />}
           {activeTab === 'simulator' && <StressTestSimulatorTab />}
           {activeTab === 'comparison' && <ModelComparisonTab />}
